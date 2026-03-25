@@ -84,8 +84,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -97,9 +97,9 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetApplications(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, RequestContext context)
+        public virtual Pageable<BinaryData> GetApplications(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, RequestContext context)
         {
-            return new BatchClientGetApplicationsCollectionResult(this, timeOutInSeconds, ocpDate, maxresults, context);
+            return new BatchClientGetApplicationsCollectionResult(this, timeout, requestDate, maxresults, context);
         }
 
         /// <summary>
@@ -114,8 +114,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -127,9 +127,9 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetApplicationsAsync(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetApplicationsAsync(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, RequestContext context)
         {
-            return new BatchClientGetApplicationsAsyncCollectionResult(this, timeOutInSeconds, ocpDate, maxresults, context);
+            return new BatchClientGetApplicationsAsyncCollectionResult(this, timeout, requestDate, maxresults, context);
         }
 
         /// <summary>
@@ -139,8 +139,8 @@ namespace Azure.Compute.Batch
         /// available to Compute Nodes, use the Azure portal or the Azure Resource Manager
         /// API.
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -151,9 +151,9 @@ namespace Azure.Compute.Batch
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchApplication> GetApplications(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchApplication> GetApplications(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, CancellationToken cancellationToken = default)
         {
-            return new BatchClientGetApplicationsCollectionResultOfT(this, timeOutInSeconds, ocpDate, maxresults, cancellationToken.ToRequestContext());
+            return new BatchClientGetApplicationsCollectionResultOfT(this, timeout, requestDate, maxresults, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -163,8 +163,8 @@ namespace Azure.Compute.Batch
         /// available to Compute Nodes, use the Azure portal or the Azure Resource Manager
         /// API.
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -175,9 +175,9 @@ namespace Azure.Compute.Batch
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchApplication> GetApplicationsAsync(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchApplication> GetApplicationsAsync(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, CancellationToken cancellationToken = default)
         {
-            return new BatchClientGetApplicationsAsyncCollectionResultOfT(this, timeOutInSeconds, ocpDate, maxresults, cancellationToken.ToRequestContext());
+            return new BatchClientGetApplicationsAsyncCollectionResultOfT(this, timeout, requestDate, maxresults, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -193,8 +193,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="applicationId"> The ID of the Application. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -204,7 +204,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="applicationId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response GetApplication(string applicationId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual Response GetApplication(string applicationId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetApplication");
             scope.Start();
@@ -212,7 +212,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(applicationId, nameof(applicationId));
 
-                using HttpMessage message = CreateGetApplicationRequest(applicationId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateGetApplicationRequest(applicationId, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -235,8 +235,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="applicationId"> The ID of the Application. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -246,7 +246,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="applicationId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> GetApplicationAsync(string applicationId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual async Task<Response> GetApplicationAsync(string applicationId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetApplication");
             scope.Start();
@@ -254,7 +254,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(applicationId, nameof(applicationId));
 
-                using HttpMessage message = CreateGetApplicationRequest(applicationId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateGetApplicationRequest(applicationId, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -272,8 +272,8 @@ namespace Azure.Compute.Batch
         /// API.
         /// </summary>
         /// <param name="applicationId"> The ID of the Application. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -282,11 +282,11 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="applicationId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="applicationId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BatchApplication> GetApplication(string applicationId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response<BatchApplication> GetApplication(string applicationId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(applicationId, nameof(applicationId));
 
-            Response result = GetApplication(applicationId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            Response result = GetApplication(applicationId, timeout, requestDate, cancellationToken.ToRequestContext());
             return Response.FromValue((BatchApplication)result, result);
         }
 
@@ -298,8 +298,8 @@ namespace Azure.Compute.Batch
         /// API.
         /// </summary>
         /// <param name="applicationId"> The ID of the Application. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -308,11 +308,11 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="applicationId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="applicationId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BatchApplication>> GetApplicationAsync(string applicationId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BatchApplication>> GetApplicationAsync(string applicationId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(applicationId, nameof(applicationId));
 
-            Response result = await GetApplicationAsync(applicationId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await GetApplicationAsync(applicationId, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((BatchApplication)result, result);
         }
 
@@ -329,8 +329,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -356,12 +356,12 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetPoolUsageMetrics(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, DateTimeOffset? starttime, DateTimeOffset? endtime, string filter, RequestContext context)
+        public virtual Pageable<BinaryData> GetPoolUsageMetrics(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, DateTimeOffset? starttime, DateTimeOffset? endtime, string filter, RequestContext context)
         {
             return new BatchClientGetPoolUsageMetricsCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 starttime,
                 endtime,
@@ -382,8 +382,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -409,12 +409,12 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetPoolUsageMetricsAsync(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, DateTimeOffset? starttime, DateTimeOffset? endtime, string filter, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetPoolUsageMetricsAsync(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, DateTimeOffset? starttime, DateTimeOffset? endtime, string filter, RequestContext context)
         {
             return new BatchClientGetPoolUsageMetricsAsyncCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 starttime,
                 endtime,
@@ -430,8 +430,8 @@ namespace Azure.Compute.Batch
         /// times of the last aggregation interval currently available; that is, only the
         /// last aggregation interval is returned.
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -456,12 +456,12 @@ namespace Azure.Compute.Batch
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchPoolUsageMetrics> GetPoolUsageMetrics(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, DateTimeOffset? starttime = default, DateTimeOffset? endtime = default, string filter = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchPoolUsageMetrics> GetPoolUsageMetrics(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, DateTimeOffset? starttime = default, DateTimeOffset? endtime = default, string filter = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetPoolUsageMetricsCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 starttime,
                 endtime,
@@ -477,8 +477,8 @@ namespace Azure.Compute.Batch
         /// times of the last aggregation interval currently available; that is, only the
         /// last aggregation interval is returned.
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -503,12 +503,12 @@ namespace Azure.Compute.Batch
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchPoolUsageMetrics> GetPoolUsageMetricsAsync(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, DateTimeOffset? starttime = default, DateTimeOffset? endtime = default, string filter = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchPoolUsageMetrics> GetPoolUsageMetricsAsync(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, DateTimeOffset? starttime = default, DateTimeOffset? endtime = default, string filter = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetPoolUsageMetricsAsyncCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 starttime,
                 endtime,
@@ -527,8 +527,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -537,7 +537,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="content"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response CreatePool(RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual Response CreatePool(RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreatePool");
             scope.Start();
@@ -545,7 +545,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreatePoolRequest(content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreatePoolRequest(content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -566,8 +566,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -576,7 +576,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="content"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> CreatePoolAsync(RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual async Task<Response> CreatePoolAsync(RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreatePool");
             scope.Start();
@@ -584,7 +584,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreatePoolRequest(content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreatePoolRequest(content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -600,8 +600,8 @@ namespace Azure.Compute.Batch
         /// to Microsoft Support engineers.
         /// </summary>
         /// <param name="pool"> The Pool to be created. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -609,11 +609,11 @@ namespace Azure.Compute.Batch
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="pool"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response CreatePool(BatchPoolCreateOptions pool, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response CreatePool(BatchPoolCreateOptions pool, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNull(pool, nameof(pool));
 
-            return CreatePool(pool, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return CreatePool(pool, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -622,8 +622,8 @@ namespace Azure.Compute.Batch
         /// to Microsoft Support engineers.
         /// </summary>
         /// <param name="pool"> The Pool to be created. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -631,11 +631,11 @@ namespace Azure.Compute.Batch
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="pool"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> CreatePoolAsync(BatchPoolCreateOptions pool, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> CreatePoolAsync(BatchPoolCreateOptions pool, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNull(pool, nameof(pool));
 
-            return await CreatePoolAsync(pool, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await CreatePoolAsync(pool, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -646,8 +646,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -665,12 +665,12 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetPools(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual Pageable<BinaryData> GetPools(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             return new BatchClientGetPoolsCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -686,8 +686,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -705,12 +705,12 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetPoolsAsync(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetPoolsAsync(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             return new BatchClientGetPoolsAsyncCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -719,8 +719,8 @@ namespace Azure.Compute.Batch
         }
 
         /// <summary> Lists all of the Pools in the specified Account. </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -737,12 +737,12 @@ namespace Azure.Compute.Batch
         /// <param name="expand"> An OData $expand clause. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchPool> GetPools(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchPool> GetPools(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetPoolsCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -751,8 +751,8 @@ namespace Azure.Compute.Batch
         }
 
         /// <summary> Lists all of the Pools in the specified Account. </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -769,12 +769,12 @@ namespace Azure.Compute.Batch
         /// <param name="expand"> An OData $expand clause. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchPool> GetPoolsAsync(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchPool> GetPoolsAsync(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetPoolsAsyncCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -802,8 +802,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -812,13 +812,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response DeletePoolInternal(string poolId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        internal virtual Response DeletePoolInternal(string poolId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeletePoolInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateDeletePoolInternalRequest(poolId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateDeletePoolInternalRequest(poolId, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -848,8 +848,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -858,13 +858,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> DeletePoolInternalAsync(string poolId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        internal virtual async Task<Response> DeletePoolInternalAsync(string poolId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeletePoolInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateDeletePoolInternalRequest(poolId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateDeletePoolInternalRequest(poolId, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -889,8 +889,8 @@ namespace Azure.Compute.Batch
         /// error code PoolBeingDeleted.
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -898,9 +898,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response DeletePoolInternal(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual Response DeletePoolInternal(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return DeletePoolInternal(poolId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return DeletePoolInternal(poolId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -918,8 +918,8 @@ namespace Azure.Compute.Batch
         /// error code PoolBeingDeleted.
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -927,9 +927,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> DeletePoolInternalAsync(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> DeletePoolInternalAsync(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return await DeletePoolInternalAsync(poolId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DeletePoolInternalAsync(poolId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -941,8 +941,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -951,13 +951,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response PoolExistsInternal(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        internal virtual Response PoolExistsInternal(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.PoolExistsInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreatePoolExistsInternalRequest(poolId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreatePoolExistsInternalRequest(poolId, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -976,8 +976,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -986,13 +986,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> PoolExistsInternalAsync(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        internal virtual async Task<Response> PoolExistsInternalAsync(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.PoolExistsInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreatePoolExistsInternalRequest(poolId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreatePoolExistsInternalRequest(poolId, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -1011,8 +1011,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1025,7 +1025,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response GetPool(string poolId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual Response GetPool(string poolId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetPool");
             scope.Start();
@@ -1033,7 +1033,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
-                using HttpMessage message = CreateGetPoolRequest(poolId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, context);
+                using HttpMessage message = CreateGetPoolRequest(poolId, timeout, requestDate, requestConditions, @select, expand, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -1052,8 +1052,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1066,7 +1066,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> GetPoolAsync(string poolId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual async Task<Response> GetPoolAsync(string poolId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetPool");
             scope.Start();
@@ -1074,7 +1074,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
-                using HttpMessage message = CreateGetPoolRequest(poolId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, context);
+                using HttpMessage message = CreateGetPoolRequest(poolId, timeout, requestDate, requestConditions, @select, expand, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -1086,8 +1086,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> Gets information about the specified Pool. </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1099,18 +1099,18 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BatchPool> GetPool(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual Response<BatchPool> GetPool(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
-            Response result = GetPool(poolId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, cancellationToken.ToRequestContext());
+            Response result = GetPool(poolId, timeout, requestDate, requestConditions, @select, expand, cancellationToken.ToRequestContext());
             return Response.FromValue((BatchPool)result, result);
         }
 
         /// <summary> Gets information about the specified Pool. </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1122,11 +1122,11 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BatchPool>> GetPoolAsync(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BatchPool>> GetPoolAsync(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
-            Response result = await GetPoolAsync(poolId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await GetPoolAsync(poolId, timeout, requestDate, requestConditions, @select, expand, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((BatchPool)result, result);
         }
 
@@ -1142,8 +1142,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1154,7 +1154,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response UpdatePool(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual Response UpdatePool(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.UpdatePool");
             scope.Start();
@@ -1163,7 +1163,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateUpdatePoolRequest(poolId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateUpdatePoolRequest(poolId, content, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -1185,8 +1185,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1197,7 +1197,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> UpdatePoolAsync(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual async Task<Response> UpdatePoolAsync(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.UpdatePool");
             scope.Start();
@@ -1206,7 +1206,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateUpdatePoolRequest(poolId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateUpdatePoolRequest(poolId, content, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -1225,8 +1225,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool on which to disable automatic scaling. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1236,7 +1236,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response DisablePoolAutoScale(string poolId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual Response DisablePoolAutoScale(string poolId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DisablePoolAutoScale");
             scope.Start();
@@ -1244,7 +1244,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
-                using HttpMessage message = CreateDisablePoolAutoScaleRequest(poolId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateDisablePoolAutoScaleRequest(poolId, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -1263,8 +1263,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool on which to disable automatic scaling. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1274,7 +1274,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> DisablePoolAutoScaleAsync(string poolId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual async Task<Response> DisablePoolAutoScaleAsync(string poolId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DisablePoolAutoScale");
             scope.Start();
@@ -1282,7 +1282,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
-                using HttpMessage message = CreateDisablePoolAutoScaleRequest(poolId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateDisablePoolAutoScaleRequest(poolId, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -1294,8 +1294,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> Disables automatic scaling for a Pool. </summary>
         /// <param name="poolId"> The ID of the Pool on which to disable automatic scaling. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1304,17 +1304,17 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response DisablePoolAutoScale(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response DisablePoolAutoScale(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
-            return DisablePoolAutoScale(poolId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return DisablePoolAutoScale(poolId, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary> Disables automatic scaling for a Pool. </summary>
         /// <param name="poolId"> The ID of the Pool on which to disable automatic scaling. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1323,11 +1323,11 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> DisablePoolAutoScaleAsync(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> DisablePoolAutoScaleAsync(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
-            return await DisablePoolAutoScaleAsync(poolId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DisablePoolAutoScaleAsync(poolId, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1345,8 +1345,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1357,7 +1357,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response EnablePoolAutoScale(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual Response EnablePoolAutoScale(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.EnablePoolAutoScale");
             scope.Start();
@@ -1366,7 +1366,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateEnablePoolAutoScaleRequest(poolId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateEnablePoolAutoScaleRequest(poolId, content, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -1391,8 +1391,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1403,7 +1403,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> EnablePoolAutoScaleAsync(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual async Task<Response> EnablePoolAutoScaleAsync(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.EnablePoolAutoScale");
             scope.Start();
@@ -1412,7 +1412,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateEnablePoolAutoScaleRequest(poolId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateEnablePoolAutoScaleRequest(poolId, content, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -1432,8 +1432,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="enableAutoScaleOptions"> The options to use for enabling automatic scaling. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1443,12 +1443,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="enableAutoScaleOptions"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response EnablePoolAutoScale(string poolId, BatchPoolEnableAutoScaleOptions enableAutoScaleOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual Response EnablePoolAutoScale(string poolId, BatchPoolEnableAutoScaleOptions enableAutoScaleOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNull(enableAutoScaleOptions, nameof(enableAutoScaleOptions));
 
-            return EnablePoolAutoScale(poolId, enableAutoScaleOptions, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return EnablePoolAutoScale(poolId, enableAutoScaleOptions, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -1461,8 +1461,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="enableAutoScaleOptions"> The options to use for enabling automatic scaling. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1472,12 +1472,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="enableAutoScaleOptions"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> EnablePoolAutoScaleAsync(string poolId, BatchPoolEnableAutoScaleOptions enableAutoScaleOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> EnablePoolAutoScaleAsync(string poolId, BatchPoolEnableAutoScaleOptions enableAutoScaleOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNull(enableAutoScaleOptions, nameof(enableAutoScaleOptions));
 
-            return await EnablePoolAutoScaleAsync(poolId, enableAutoScaleOptions, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await EnablePoolAutoScaleAsync(poolId, enableAutoScaleOptions, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1492,8 +1492,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool on which to evaluate the automatic scaling formula. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1503,7 +1503,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response EvaluatePoolAutoScale(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual Response EvaluatePoolAutoScale(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.EvaluatePoolAutoScale");
             scope.Start();
@@ -1512,7 +1512,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateEvaluatePoolAutoScaleRequest(poolId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateEvaluatePoolAutoScaleRequest(poolId, content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -1534,8 +1534,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool on which to evaluate the automatic scaling formula. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1545,7 +1545,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> EvaluatePoolAutoScaleAsync(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual async Task<Response> EvaluatePoolAutoScaleAsync(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.EvaluatePoolAutoScale");
             scope.Start();
@@ -1554,7 +1554,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateEvaluatePoolAutoScaleRequest(poolId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateEvaluatePoolAutoScaleRequest(poolId, content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -1571,8 +1571,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool on which to evaluate the automatic scaling formula. </param>
         /// <param name="evaluateAutoScaleOptions"> The options to use for evaluating the automatic scaling formula. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1581,12 +1581,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="evaluateAutoScaleOptions"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<AutoScaleRun> EvaluatePoolAutoScale(string poolId, BatchPoolEvaluateAutoScaleOptions evaluateAutoScaleOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response<AutoScaleRun> EvaluatePoolAutoScale(string poolId, BatchPoolEvaluateAutoScaleOptions evaluateAutoScaleOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNull(evaluateAutoScaleOptions, nameof(evaluateAutoScaleOptions));
 
-            Response result = EvaluatePoolAutoScale(poolId, evaluateAutoScaleOptions, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            Response result = EvaluatePoolAutoScale(poolId, evaluateAutoScaleOptions, timeout, requestDate, cancellationToken.ToRequestContext());
             return Response.FromValue((AutoScaleRun)result, result);
         }
 
@@ -1597,8 +1597,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool on which to evaluate the automatic scaling formula. </param>
         /// <param name="evaluateAutoScaleOptions"> The options to use for evaluating the automatic scaling formula. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1607,12 +1607,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="evaluateAutoScaleOptions"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<AutoScaleRun>> EvaluatePoolAutoScaleAsync(string poolId, BatchPoolEvaluateAutoScaleOptions evaluateAutoScaleOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<AutoScaleRun>> EvaluatePoolAutoScaleAsync(string poolId, BatchPoolEvaluateAutoScaleOptions evaluateAutoScaleOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNull(evaluateAutoScaleOptions, nameof(evaluateAutoScaleOptions));
 
-            Response result = await EvaluatePoolAutoScaleAsync(poolId, evaluateAutoScaleOptions, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await EvaluatePoolAutoScaleAsync(poolId, evaluateAutoScaleOptions, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((AutoScaleRun)result, result);
         }
 
@@ -1632,8 +1632,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1642,13 +1642,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response ResizePoolInternal(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        internal virtual Response ResizePoolInternal(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ResizePoolInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateResizePoolInternalRequest(poolId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateResizePoolInternalRequest(poolId, content, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -1674,8 +1674,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1684,13 +1684,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> ResizePoolInternalAsync(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        internal virtual async Task<Response> ResizePoolInternalAsync(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ResizePoolInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateResizePoolInternalRequest(poolId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateResizePoolInternalRequest(poolId, content, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -1711,8 +1711,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="resizeOptions"> The options to use for resizing the pool. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1720,9 +1720,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response ResizePoolInternal(string poolId, BatchPoolResizeOptions resizeOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual Response ResizePoolInternal(string poolId, BatchPoolResizeOptions resizeOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return ResizePoolInternal(poolId, resizeOptions, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return ResizePoolInternal(poolId, resizeOptions, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -1736,8 +1736,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="resizeOptions"> The options to use for resizing the pool. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1745,9 +1745,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> ResizePoolInternalAsync(string poolId, BatchPoolResizeOptions resizeOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> ResizePoolInternalAsync(string poolId, BatchPoolResizeOptions resizeOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return await ResizePoolInternalAsync(poolId, resizeOptions, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await ResizePoolInternalAsync(poolId, resizeOptions, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1765,8 +1765,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1775,13 +1775,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response StopPoolResizeInternal(string poolId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        internal virtual Response StopPoolResizeInternal(string poolId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.StopPoolResizeInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateStopPoolResizeInternalRequest(poolId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateStopPoolResizeInternalRequest(poolId, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -1806,8 +1806,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1816,13 +1816,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> StopPoolResizeInternalAsync(string poolId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        internal virtual async Task<Response> StopPoolResizeInternalAsync(string poolId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.StopPoolResizeInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateStopPoolResizeInternalRequest(poolId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateStopPoolResizeInternalRequest(poolId, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -1842,8 +1842,8 @@ namespace Azure.Compute.Batch
         /// be used to halt the initial sizing of the Pool when it is created.
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1851,9 +1851,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response StopPoolResizeInternal(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual Response StopPoolResizeInternal(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return StopPoolResizeInternal(poolId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return StopPoolResizeInternal(poolId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -1866,8 +1866,8 @@ namespace Azure.Compute.Batch
         /// be used to halt the initial sizing of the Pool when it is created.
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1875,9 +1875,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> StopPoolResizeInternalAsync(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> StopPoolResizeInternalAsync(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return await StopPoolResizeInternalAsync(poolId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await StopPoolResizeInternalAsync(poolId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1892,8 +1892,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1903,7 +1903,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response ReplacePoolProperties(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual Response ReplacePoolProperties(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReplacePoolProperties");
             scope.Start();
@@ -1912,7 +1912,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateReplacePoolPropertiesRequest(poolId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateReplacePoolPropertiesRequest(poolId, content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -1934,8 +1934,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1945,7 +1945,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> ReplacePoolPropertiesAsync(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual async Task<Response> ReplacePoolPropertiesAsync(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReplacePoolProperties");
             scope.Start();
@@ -1954,7 +1954,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateReplacePoolPropertiesRequest(poolId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateReplacePoolPropertiesRequest(poolId, content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -1971,8 +1971,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to update. </param>
         /// <param name="pool"> The options to use for replacing properties on the pool. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -1981,12 +1981,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="pool"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response ReplacePoolProperties(string poolId, BatchPoolReplaceOptions pool, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response ReplacePoolProperties(string poolId, BatchPoolReplaceOptions pool, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNull(pool, nameof(pool));
 
-            return ReplacePoolProperties(poolId, pool, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return ReplacePoolProperties(poolId, pool, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -1996,8 +1996,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to update. </param>
         /// <param name="pool"> The options to use for replacing properties on the pool. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2006,12 +2006,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="pool"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> ReplacePoolPropertiesAsync(string poolId, BatchPoolReplaceOptions pool, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> ReplacePoolPropertiesAsync(string poolId, BatchPoolReplaceOptions pool, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNull(pool, nameof(pool));
 
-            return await ReplacePoolPropertiesAsync(poolId, pool, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await ReplacePoolPropertiesAsync(poolId, pool, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -2026,8 +2026,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2036,13 +2036,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response RemoveNodesInternal(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        internal virtual Response RemoveNodesInternal(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.RemoveNodesInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateRemoveNodesInternalRequest(poolId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateRemoveNodesInternalRequest(poolId, content, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -2064,8 +2064,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2074,13 +2074,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> RemoveNodesInternalAsync(string poolId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        internal virtual async Task<Response> RemoveNodesInternalAsync(string poolId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.RemoveNodesInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateRemoveNodesInternalRequest(poolId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateRemoveNodesInternalRequest(poolId, content, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -2097,8 +2097,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="removeOptions"> The options to use for removing the node. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2106,9 +2106,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response RemoveNodesInternal(string poolId, BatchNodeRemoveOptions removeOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual Response RemoveNodesInternal(string poolId, BatchNodeRemoveOptions removeOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return RemoveNodesInternal(poolId, removeOptions, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return RemoveNodesInternal(poolId, removeOptions, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -2118,8 +2118,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool to get. </param>
         /// <param name="removeOptions"> The options to use for removing the node. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2127,9 +2127,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> RemoveNodesInternalAsync(string poolId, BatchNodeRemoveOptions removeOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> RemoveNodesInternalAsync(string poolId, BatchNodeRemoveOptions removeOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return await RemoveNodesInternalAsync(poolId, removeOptions, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await RemoveNodesInternalAsync(poolId, removeOptions, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -2140,8 +2140,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2157,12 +2157,12 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetSupportedImages(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, RequestContext context)
+        public virtual Pageable<BinaryData> GetSupportedImages(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, RequestContext context)
         {
             return new BatchClientGetSupportedImagesCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 context);
@@ -2176,8 +2176,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2193,20 +2193,20 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetSupportedImagesAsync(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetSupportedImagesAsync(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, RequestContext context)
         {
             return new BatchClientGetSupportedImagesAsyncCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 context);
         }
 
         /// <summary> Lists all Virtual Machine Images supported by the Azure Batch service. </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2221,20 +2221,20 @@ namespace Azure.Compute.Batch
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchSupportedImage> GetSupportedImages(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchSupportedImage> GetSupportedImages(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetSupportedImagesCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 cancellationToken.ToRequestContext());
         }
 
         /// <summary> Lists all Virtual Machine Images supported by the Azure Batch service. </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2249,12 +2249,12 @@ namespace Azure.Compute.Batch
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchSupportedImage> GetSupportedImagesAsync(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchSupportedImage> GetSupportedImagesAsync(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetSupportedImagesAsyncCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 cancellationToken.ToRequestContext());
@@ -2270,8 +2270,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2287,12 +2287,12 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetPoolNodeCounts(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, RequestContext context)
+        public virtual Pageable<BinaryData> GetPoolNodeCounts(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, RequestContext context)
         {
             return new BatchClientGetPoolNodeCountsCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 context);
@@ -2308,8 +2308,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2325,12 +2325,12 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetPoolNodeCountsAsync(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetPoolNodeCountsAsync(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, RequestContext context)
         {
             return new BatchClientGetPoolNodeCountsAsyncCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 context);
@@ -2341,8 +2341,8 @@ namespace Azure.Compute.Batch
         /// numbers returned may not always be up to date. If you need exact node counts,
         /// use a list query.
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2357,12 +2357,12 @@ namespace Azure.Compute.Batch
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchPoolNodeCounts> GetPoolNodeCounts(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchPoolNodeCounts> GetPoolNodeCounts(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetPoolNodeCountsCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 cancellationToken.ToRequestContext());
@@ -2373,8 +2373,8 @@ namespace Azure.Compute.Batch
         /// numbers returned may not always be up to date. If you need exact node counts,
         /// use a list query.
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2389,12 +2389,12 @@ namespace Azure.Compute.Batch
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchPoolNodeCounts> GetPoolNodeCountsAsync(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchPoolNodeCounts> GetPoolNodeCountsAsync(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetPoolNodeCountsAsyncCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 cancellationToken.ToRequestContext());
@@ -2416,8 +2416,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2427,13 +2427,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response DeleteJobInternal(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, bool? force, RequestContext context)
+        internal virtual Response DeleteJobInternal(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, bool? force, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteJobInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateDeleteJobInternalRequest(jobId, timeOutInSeconds, ocpDate, requestConditions, force, context);
+                using HttpMessage message = CreateDeleteJobInternalRequest(jobId, timeout, requestDate, requestConditions, force, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -2459,8 +2459,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2470,13 +2470,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> DeleteJobInternalAsync(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, bool? force, RequestContext context)
+        internal virtual async Task<Response> DeleteJobInternalAsync(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, bool? force, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteJobInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateDeleteJobInternalRequest(jobId, timeOutInSeconds, ocpDate, requestConditions, force, context);
+                using HttpMessage message = CreateDeleteJobInternalRequest(jobId, timeout, requestDate, requestConditions, force, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -2497,8 +2497,8 @@ namespace Azure.Compute.Batch
         /// that the Job is being deleted.
         /// </summary>
         /// <param name="jobId"> The ID of the Job to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2507,9 +2507,9 @@ namespace Azure.Compute.Batch
         /// <param name="force"> If true, the server will delete the Job even if the corresponding nodes have not fully processed the deletion. The default value is false. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response DeleteJobInternal(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
+        internal virtual Response DeleteJobInternal(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
         {
-            return DeleteJobInternal(jobId, timeOutInSeconds, ocpDate, requestConditions, force, cancellationToken.ToRequestContext());
+            return DeleteJobInternal(jobId, timeout, requestDate, requestConditions, force, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -2523,8 +2523,8 @@ namespace Azure.Compute.Batch
         /// that the Job is being deleted.
         /// </summary>
         /// <param name="jobId"> The ID of the Job to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2533,9 +2533,9 @@ namespace Azure.Compute.Batch
         /// <param name="force"> If true, the server will delete the Job even if the corresponding nodes have not fully processed the deletion. The default value is false. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> DeleteJobInternalAsync(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> DeleteJobInternalAsync(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
         {
-            return await DeleteJobInternalAsync(jobId, timeOutInSeconds, ocpDate, requestConditions, force, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DeleteJobInternalAsync(jobId, timeout, requestDate, requestConditions, force, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -2547,8 +2547,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2561,7 +2561,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response GetJob(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual Response GetJob(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetJob");
             scope.Start();
@@ -2569,7 +2569,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
-                using HttpMessage message = CreateGetJobRequest(jobId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, context);
+                using HttpMessage message = CreateGetJobRequest(jobId, timeout, requestDate, requestConditions, @select, expand, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -2588,8 +2588,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2602,7 +2602,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> GetJobAsync(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual async Task<Response> GetJobAsync(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetJob");
             scope.Start();
@@ -2610,7 +2610,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
-                using HttpMessage message = CreateGetJobRequest(jobId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, context);
+                using HttpMessage message = CreateGetJobRequest(jobId, timeout, requestDate, requestConditions, @select, expand, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -2622,8 +2622,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> Gets information about the specified Job. </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2635,18 +2635,18 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BatchJob> GetJob(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual Response<BatchJob> GetJob(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
-            Response result = GetJob(jobId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, cancellationToken.ToRequestContext());
+            Response result = GetJob(jobId, timeout, requestDate, requestConditions, @select, expand, cancellationToken.ToRequestContext());
             return Response.FromValue((BatchJob)result, result);
         }
 
         /// <summary> Gets information about the specified Job. </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2658,11 +2658,11 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BatchJob>> GetJobAsync(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BatchJob>> GetJobAsync(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
-            Response result = await GetJobAsync(jobId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await GetJobAsync(jobId, timeout, requestDate, requestConditions, @select, expand, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((BatchJob)result, result);
         }
 
@@ -2678,8 +2678,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job whose properties you want to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2690,7 +2690,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response UpdateJob(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual Response UpdateJob(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.UpdateJob");
             scope.Start();
@@ -2699,7 +2699,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateUpdateJobRequest(jobId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateUpdateJobRequest(jobId, content, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -2721,8 +2721,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job whose properties you want to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2733,7 +2733,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> UpdateJobAsync(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual async Task<Response> UpdateJobAsync(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.UpdateJob");
             scope.Start();
@@ -2742,7 +2742,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateUpdateJobRequest(jobId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateUpdateJobRequest(jobId, content, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -2764,8 +2764,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job whose properties you want to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2776,7 +2776,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response ReplaceJob(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual Response ReplaceJob(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReplaceJob");
             scope.Start();
@@ -2785,7 +2785,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateReplaceJobRequest(jobId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateReplaceJobRequest(jobId, content, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -2807,8 +2807,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job whose properties you want to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2819,7 +2819,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> ReplaceJobAsync(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual async Task<Response> ReplaceJobAsync(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReplaceJob");
             scope.Start();
@@ -2828,7 +2828,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateReplaceJobRequest(jobId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateReplaceJobRequest(jobId, content, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -2845,8 +2845,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job whose properties you want to update. </param>
         /// <param name="job"> A job with updated properties. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2856,12 +2856,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="job"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response ReplaceJob(string jobId, BatchJob job, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual Response ReplaceJob(string jobId, BatchJob job, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNull(job, nameof(job));
 
-            return ReplaceJob(jobId, job, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return ReplaceJob(jobId, job, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -2871,8 +2871,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job whose properties you want to update. </param>
         /// <param name="job"> A job with updated properties. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2882,12 +2882,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="job"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> ReplaceJobAsync(string jobId, BatchJob job, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> ReplaceJobAsync(string jobId, BatchJob job, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNull(job, nameof(job));
 
-            return await ReplaceJobAsync(jobId, job, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await ReplaceJobAsync(jobId, job, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -2907,8 +2907,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to disable. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2917,13 +2917,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response DisableJobInternal(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        internal virtual Response DisableJobInternal(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DisableJobInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateDisableJobInternalRequest(jobId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateDisableJobInternalRequest(jobId, content, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -2950,8 +2950,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to disable. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2960,13 +2960,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> DisableJobInternalAsync(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        internal virtual async Task<Response> DisableJobInternalAsync(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DisableJobInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateDisableJobInternalRequest(jobId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateDisableJobInternalRequest(jobId, content, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -2988,8 +2988,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to disable. </param>
         /// <param name="disableOptions"> The options to use for disabling the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -2997,9 +2997,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response DisableJobInternal(string jobId, BatchJobDisableOptions disableOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual Response DisableJobInternal(string jobId, BatchJobDisableOptions disableOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return DisableJobInternal(jobId, disableOptions, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return DisableJobInternal(jobId, disableOptions, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -3014,8 +3014,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to disable. </param>
         /// <param name="disableOptions"> The options to use for disabling the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3023,9 +3023,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> DisableJobInternalAsync(string jobId, BatchJobDisableOptions disableOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> DisableJobInternalAsync(string jobId, BatchJobDisableOptions disableOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return await DisableJobInternalAsync(jobId, disableOptions, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DisableJobInternalAsync(jobId, disableOptions, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -3042,8 +3042,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job to enable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3052,13 +3052,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response EnableJobInternal(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        internal virtual Response EnableJobInternal(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.EnableJobInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateEnableJobInternalRequest(jobId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateEnableJobInternalRequest(jobId, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -3082,8 +3082,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job to enable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3092,13 +3092,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> EnableJobInternalAsync(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        internal virtual async Task<Response> EnableJobInternalAsync(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.EnableJobInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateEnableJobInternalRequest(jobId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateEnableJobInternalRequest(jobId, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -3117,8 +3117,8 @@ namespace Azure.Compute.Batch
         /// than 180 days ago, those Tasks will not run.
         /// </summary>
         /// <param name="jobId"> The ID of the Job to enable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3126,9 +3126,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response EnableJobInternal(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual Response EnableJobInternal(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return EnableJobInternal(jobId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return EnableJobInternal(jobId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -3140,8 +3140,8 @@ namespace Azure.Compute.Batch
         /// than 180 days ago, those Tasks will not run.
         /// </summary>
         /// <param name="jobId"> The ID of the Job to enable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3149,9 +3149,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> EnableJobInternalAsync(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> EnableJobInternalAsync(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return await EnableJobInternalAsync(jobId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await EnableJobInternalAsync(jobId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -3169,8 +3169,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to terminate. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3180,13 +3180,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response TerminateJobInternal(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, bool? force = default, RequestContext context = null)
+        internal virtual Response TerminateJobInternal(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, bool? force = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.TerminateJobInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateTerminateJobInternalRequest(jobId, content, timeOutInSeconds, ocpDate, requestConditions, force, context);
+                using HttpMessage message = CreateTerminateJobInternalRequest(jobId, content, timeout, requestDate, requestConditions, force, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -3211,8 +3211,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to terminate. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3222,13 +3222,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> TerminateJobInternalAsync(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, bool? force = default, RequestContext context = null)
+        internal virtual async Task<Response> TerminateJobInternalAsync(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, bool? force = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.TerminateJobInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateTerminateJobInternalRequest(jobId, content, timeOutInSeconds, ocpDate, requestConditions, force, context);
+                using HttpMessage message = CreateTerminateJobInternalRequest(jobId, content, timeout, requestDate, requestConditions, force, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -3248,8 +3248,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to terminate. </param>
         /// <param name="options"> The options to use for terminating the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3258,9 +3258,9 @@ namespace Azure.Compute.Batch
         /// <param name="force"> If true, the server will terminate the Job even if the corresponding nodes have not fully processed the termination. The default value is false. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response TerminateJobInternal(string jobId, BatchJobTerminateOptions options = default, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
+        internal virtual Response TerminateJobInternal(string jobId, BatchJobTerminateOptions options = default, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
         {
-            return TerminateJobInternal(jobId, options, timeOutInSeconds, ocpDate, requestConditions, force, cancellationToken.ToRequestContext());
+            return TerminateJobInternal(jobId, options, timeout, requestDate, requestConditions, force, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -3273,8 +3273,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to terminate. </param>
         /// <param name="options"> The options to use for terminating the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3283,9 +3283,9 @@ namespace Azure.Compute.Batch
         /// <param name="force"> If true, the server will terminate the Job even if the corresponding nodes have not fully processed the termination. The default value is false. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> TerminateJobInternalAsync(string jobId, BatchJobTerminateOptions options = default, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> TerminateJobInternalAsync(string jobId, BatchJobTerminateOptions options = default, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
         {
-            return await TerminateJobInternalAsync(jobId, options, timeOutInSeconds, ocpDate, requestConditions, force, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await TerminateJobInternalAsync(jobId, options, timeout, requestDate, requestConditions, force, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -3305,8 +3305,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3315,7 +3315,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="content"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response CreateJob(RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual Response CreateJob(RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreateJob");
             scope.Start();
@@ -3323,7 +3323,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreateJobRequest(content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreateJobRequest(content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -3350,8 +3350,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3360,7 +3360,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="content"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> CreateJobAsync(RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual async Task<Response> CreateJobAsync(RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreateJob");
             scope.Start();
@@ -3368,7 +3368,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreateJobRequest(content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreateJobRequest(content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -3390,8 +3390,8 @@ namespace Azure.Compute.Batch
         /// engineers.
         /// </summary>
         /// <param name="job"> The Job to be created. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3399,11 +3399,11 @@ namespace Azure.Compute.Batch
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="job"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response CreateJob(BatchJobCreateOptions job, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response CreateJob(BatchJobCreateOptions job, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNull(job, nameof(job));
 
-            return CreateJob(job, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return CreateJob(job, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -3418,8 +3418,8 @@ namespace Azure.Compute.Batch
         /// engineers.
         /// </summary>
         /// <param name="job"> The Job to be created. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3427,11 +3427,11 @@ namespace Azure.Compute.Batch
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="job"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> CreateJobAsync(BatchJobCreateOptions job, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> CreateJobAsync(BatchJobCreateOptions job, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNull(job, nameof(job));
 
-            return await CreateJobAsync(job, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await CreateJobAsync(job, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -3442,8 +3442,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3461,12 +3461,12 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetJobs(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual Pageable<BinaryData> GetJobs(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             return new BatchClientGetJobsCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3482,8 +3482,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3501,12 +3501,12 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetJobsAsync(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetJobsAsync(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             return new BatchClientGetJobsAsyncCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3515,8 +3515,8 @@ namespace Azure.Compute.Batch
         }
 
         /// <summary> Lists all of the Jobs in the specified Account. </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3533,12 +3533,12 @@ namespace Azure.Compute.Batch
         /// <param name="expand"> An OData $expand clause. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchJob> GetJobs(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchJob> GetJobs(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetJobsCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3547,8 +3547,8 @@ namespace Azure.Compute.Batch
         }
 
         /// <summary> Lists all of the Jobs in the specified Account. </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3565,12 +3565,12 @@ namespace Azure.Compute.Batch
         /// <param name="expand"> An OData $expand clause. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchJob> GetJobsAsync(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchJob> GetJobsAsync(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetJobsAsyncCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3587,8 +3587,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule from which you want to get a list of Jobs. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3608,15 +3608,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetJobsFromSchedules(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual Pageable<BinaryData> GetJobsFromSchedules(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
             return new BatchClientGetJobsFromSchedulesCollectionResult(
                 this,
                 jobScheduleId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3633,8 +3633,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule from which you want to get a list of Jobs. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3654,15 +3654,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetJobsFromSchedulesAsync(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetJobsFromSchedulesAsync(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
             return new BatchClientGetJobsFromSchedulesAsyncCollectionResult(
                 this,
                 jobScheduleId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3672,8 +3672,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> Lists the Jobs that have been created under the specified Job Schedule. </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule from which you want to get a list of Jobs. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3692,15 +3692,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobScheduleId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchJob> GetJobsFromSchedules(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchJob> GetJobsFromSchedules(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
             return new BatchClientGetJobsFromSchedulesCollectionResultOfT(
                 this,
                 jobScheduleId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3710,8 +3710,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> Lists the Jobs that have been created under the specified Job Schedule. </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule from which you want to get a list of Jobs. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3730,15 +3730,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobScheduleId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchJob> GetJobsFromSchedulesAsync(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchJob> GetJobsFromSchedulesAsync(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
             return new BatchClientGetJobsFromSchedulesAsyncCollectionResultOfT(
                 this,
                 jobScheduleId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3760,8 +3760,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3780,15 +3780,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetJobPreparationAndReleaseTaskStatuses(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, RequestContext context)
+        public virtual Pageable<BinaryData> GetJobPreparationAndReleaseTaskStatuses(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
             return new BatchClientGetJobPreparationAndReleaseTaskStatusesCollectionResult(
                 this,
                 jobId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3809,8 +3809,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3829,15 +3829,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetJobPreparationAndReleaseTaskStatusesAsync(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetJobPreparationAndReleaseTaskStatusesAsync(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
             return new BatchClientGetJobPreparationAndReleaseTaskStatusesAsyncCollectionResult(
                 this,
                 jobId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3853,8 +3853,8 @@ namespace Azure.Compute.Batch
         /// JobPreparationTaskNotSpecified.
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3872,15 +3872,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchJobPreparationAndReleaseTaskStatus> GetJobPreparationAndReleaseTaskStatuses(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchJobPreparationAndReleaseTaskStatus> GetJobPreparationAndReleaseTaskStatuses(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
             return new BatchClientGetJobPreparationAndReleaseTaskStatusesCollectionResultOfT(
                 this,
                 jobId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3896,8 +3896,8 @@ namespace Azure.Compute.Batch
         /// JobPreparationTaskNotSpecified.
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3915,15 +3915,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchJobPreparationAndReleaseTaskStatus> GetJobPreparationAndReleaseTaskStatusesAsync(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchJobPreparationAndReleaseTaskStatus> GetJobPreparationAndReleaseTaskStatusesAsync(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
             return new BatchClientGetJobPreparationAndReleaseTaskStatusesAsyncCollectionResultOfT(
                 this,
                 jobId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -3942,8 +3942,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3953,7 +3953,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response GetJobTaskCounts(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual Response GetJobTaskCounts(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetJobTaskCounts");
             scope.Start();
@@ -3961,7 +3961,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
-                using HttpMessage message = CreateGetJobTaskCountsRequest(jobId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateGetJobTaskCountsRequest(jobId, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -3983,8 +3983,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -3994,7 +3994,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> GetJobTaskCountsAsync(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual async Task<Response> GetJobTaskCountsAsync(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetJobTaskCounts");
             scope.Start();
@@ -4002,7 +4002,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
-                using HttpMessage message = CreateGetJobTaskCountsRequest(jobId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateGetJobTaskCountsRequest(jobId, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -4019,8 +4019,8 @@ namespace Azure.Compute.Batch
         /// up to date. If you need exact task counts, use a list query.
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4029,11 +4029,11 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BatchTaskCountsResult> GetJobTaskCounts(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response<BatchTaskCountsResult> GetJobTaskCounts(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
-            Response result = GetJobTaskCounts(jobId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            Response result = GetJobTaskCounts(jobId, timeout, requestDate, cancellationToken.ToRequestContext());
             return Response.FromValue((BatchTaskCountsResult)result, result);
         }
 
@@ -4044,8 +4044,8 @@ namespace Azure.Compute.Batch
         /// up to date. If you need exact task counts, use a list query.
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4054,11 +4054,11 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BatchTaskCountsResult>> GetJobTaskCountsAsync(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BatchTaskCountsResult>> GetJobTaskCountsAsync(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
-            Response result = await GetJobTaskCountsAsync(jobId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await GetJobTaskCountsAsync(jobId, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((BatchTaskCountsResult)result, result);
         }
 
@@ -4071,8 +4071,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule which you want to check. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4081,13 +4081,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response JobScheduleExistsInternal(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        internal virtual Response JobScheduleExistsInternal(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.JobScheduleExistsInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateJobScheduleExistsInternalRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateJobScheduleExistsInternalRequest(jobScheduleId, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -4106,8 +4106,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule which you want to check. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4116,13 +4116,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> JobScheduleExistsInternalAsync(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        internal virtual async Task<Response> JobScheduleExistsInternalAsync(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.JobScheduleExistsInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateJobScheduleExistsInternalRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateJobScheduleExistsInternalRequest(jobScheduleId, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -4145,8 +4145,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4156,13 +4156,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response DeleteJobScheduleInternal(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, bool? force, RequestContext context)
+        internal virtual Response DeleteJobScheduleInternal(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, bool? force, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteJobScheduleInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateDeleteJobScheduleInternalRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, force, context);
+                using HttpMessage message = CreateDeleteJobScheduleInternalRequest(jobScheduleId, timeout, requestDate, requestConditions, force, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -4185,8 +4185,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4196,13 +4196,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> DeleteJobScheduleInternalAsync(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, bool? force, RequestContext context)
+        internal virtual async Task<Response> DeleteJobScheduleInternalAsync(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, bool? force, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteJobScheduleInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateDeleteJobScheduleInternalRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, force, context);
+                using HttpMessage message = CreateDeleteJobScheduleInternalRequest(jobScheduleId, timeout, requestDate, requestConditions, force, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -4220,8 +4220,8 @@ namespace Azure.Compute.Batch
         /// though they are still counted towards Account lifetime statistics.
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4230,9 +4230,9 @@ namespace Azure.Compute.Batch
         /// <param name="force"> If true, the server will delete the JobSchedule even if the corresponding nodes have not fully processed the deletion. The default value is false. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response DeleteJobScheduleInternal(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
+        internal virtual Response DeleteJobScheduleInternal(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
         {
-            return DeleteJobScheduleInternal(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, force, cancellationToken.ToRequestContext());
+            return DeleteJobScheduleInternal(jobScheduleId, timeout, requestDate, requestConditions, force, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -4243,8 +4243,8 @@ namespace Azure.Compute.Batch
         /// though they are still counted towards Account lifetime statistics.
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4253,9 +4253,9 @@ namespace Azure.Compute.Batch
         /// <param name="force"> If true, the server will delete the JobSchedule even if the corresponding nodes have not fully processed the deletion. The default value is false. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> DeleteJobScheduleInternalAsync(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> DeleteJobScheduleInternalAsync(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
         {
-            return await DeleteJobScheduleInternalAsync(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, force, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DeleteJobScheduleInternalAsync(jobScheduleId, timeout, requestDate, requestConditions, force, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -4267,8 +4267,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4281,7 +4281,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response GetJobSchedule(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual Response GetJobSchedule(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetJobSchedule");
             scope.Start();
@@ -4289,7 +4289,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-                using HttpMessage message = CreateGetJobScheduleRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, context);
+                using HttpMessage message = CreateGetJobScheduleRequest(jobScheduleId, timeout, requestDate, requestConditions, @select, expand, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -4308,8 +4308,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4322,7 +4322,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> GetJobScheduleAsync(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual async Task<Response> GetJobScheduleAsync(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetJobSchedule");
             scope.Start();
@@ -4330,7 +4330,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-                using HttpMessage message = CreateGetJobScheduleRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, context);
+                using HttpMessage message = CreateGetJobScheduleRequest(jobScheduleId, timeout, requestDate, requestConditions, @select, expand, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -4342,8 +4342,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> Gets information about the specified Job Schedule. </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4355,18 +4355,18 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobScheduleId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BatchJobSchedule> GetJobSchedule(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual Response<BatchJobSchedule> GetJobSchedule(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-            Response result = GetJobSchedule(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, cancellationToken.ToRequestContext());
+            Response result = GetJobSchedule(jobScheduleId, timeout, requestDate, requestConditions, @select, expand, cancellationToken.ToRequestContext());
             return Response.FromValue((BatchJobSchedule)result, result);
         }
 
         /// <summary> Gets information about the specified Job Schedule. </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to get. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4378,11 +4378,11 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobScheduleId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BatchJobSchedule>> GetJobScheduleAsync(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BatchJobSchedule>> GetJobScheduleAsync(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-            Response result = await GetJobScheduleAsync(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await GetJobScheduleAsync(jobScheduleId, timeout, requestDate, requestConditions, @select, expand, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((BatchJobSchedule)result, result);
         }
 
@@ -4400,8 +4400,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4412,7 +4412,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response UpdateJobSchedule(string jobScheduleId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual Response UpdateJobSchedule(string jobScheduleId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.UpdateJobSchedule");
             scope.Start();
@@ -4421,7 +4421,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateUpdateJobScheduleRequest(jobScheduleId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateUpdateJobScheduleRequest(jobScheduleId, content, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -4445,8 +4445,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4457,7 +4457,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> UpdateJobScheduleAsync(string jobScheduleId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual async Task<Response> UpdateJobScheduleAsync(string jobScheduleId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.UpdateJobSchedule");
             scope.Start();
@@ -4466,7 +4466,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateUpdateJobScheduleRequest(jobScheduleId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateUpdateJobScheduleRequest(jobScheduleId, content, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -4490,8 +4490,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4502,7 +4502,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response ReplaceJobSchedule(string jobScheduleId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual Response ReplaceJobSchedule(string jobScheduleId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReplaceJobSchedule");
             scope.Start();
@@ -4511,7 +4511,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateReplaceJobScheduleRequest(jobScheduleId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateReplaceJobScheduleRequest(jobScheduleId, content, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -4535,8 +4535,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4547,7 +4547,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> ReplaceJobScheduleAsync(string jobScheduleId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual async Task<Response> ReplaceJobScheduleAsync(string jobScheduleId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReplaceJobSchedule");
             scope.Start();
@@ -4556,7 +4556,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateReplaceJobScheduleRequest(jobScheduleId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateReplaceJobScheduleRequest(jobScheduleId, content, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -4575,8 +4575,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to update. </param>
         /// <param name="jobSchedule"> A Job Schedule with updated properties. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4586,12 +4586,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobScheduleId"/> or <paramref name="jobSchedule"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response ReplaceJobSchedule(string jobScheduleId, BatchJobSchedule jobSchedule, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual Response ReplaceJobSchedule(string jobScheduleId, BatchJobSchedule jobSchedule, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
             Argument.AssertNotNull(jobSchedule, nameof(jobSchedule));
 
-            return ReplaceJobSchedule(jobScheduleId, jobSchedule, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return ReplaceJobSchedule(jobScheduleId, jobSchedule, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -4603,8 +4603,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to update. </param>
         /// <param name="jobSchedule"> A Job Schedule with updated properties. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4614,12 +4614,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobScheduleId"/> or <paramref name="jobSchedule"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> ReplaceJobScheduleAsync(string jobScheduleId, BatchJobSchedule jobSchedule, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> ReplaceJobScheduleAsync(string jobScheduleId, BatchJobSchedule jobSchedule, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
             Argument.AssertNotNull(jobSchedule, nameof(jobSchedule));
 
-            return await ReplaceJobScheduleAsync(jobScheduleId, jobSchedule, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await ReplaceJobScheduleAsync(jobScheduleId, jobSchedule, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -4631,8 +4631,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to disable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4643,7 +4643,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response DisableJobSchedule(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        public virtual Response DisableJobSchedule(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DisableJobSchedule");
             scope.Start();
@@ -4651,7 +4651,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-                using HttpMessage message = CreateDisableJobScheduleRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateDisableJobScheduleRequest(jobScheduleId, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -4670,8 +4670,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to disable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4682,7 +4682,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> DisableJobScheduleAsync(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        public virtual async Task<Response> DisableJobScheduleAsync(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DisableJobSchedule");
             scope.Start();
@@ -4690,7 +4690,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-                using HttpMessage message = CreateDisableJobScheduleRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateDisableJobScheduleRequest(jobScheduleId, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -4702,8 +4702,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> No new Jobs will be created until the Job Schedule is enabled again. </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to disable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4713,17 +4713,17 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobScheduleId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response DisableJobSchedule(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual Response DisableJobSchedule(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-            return DisableJobSchedule(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return DisableJobSchedule(jobScheduleId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary> No new Jobs will be created until the Job Schedule is enabled again. </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to disable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4733,11 +4733,11 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobScheduleId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> DisableJobScheduleAsync(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> DisableJobScheduleAsync(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-            return await DisableJobScheduleAsync(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DisableJobScheduleAsync(jobScheduleId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -4749,8 +4749,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to enable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4761,7 +4761,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response EnableJobSchedule(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        public virtual Response EnableJobSchedule(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.EnableJobSchedule");
             scope.Start();
@@ -4769,7 +4769,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-                using HttpMessage message = CreateEnableJobScheduleRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateEnableJobScheduleRequest(jobScheduleId, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -4788,8 +4788,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to enable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4800,7 +4800,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> EnableJobScheduleAsync(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        public virtual async Task<Response> EnableJobScheduleAsync(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.EnableJobSchedule");
             scope.Start();
@@ -4808,7 +4808,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-                using HttpMessage message = CreateEnableJobScheduleRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateEnableJobScheduleRequest(jobScheduleId, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -4820,8 +4820,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> Enables a Job Schedule. </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to enable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4831,17 +4831,17 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobScheduleId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response EnableJobSchedule(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual Response EnableJobSchedule(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-            return EnableJobSchedule(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return EnableJobSchedule(jobScheduleId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary> Enables a Job Schedule. </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to enable. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4851,11 +4851,11 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobScheduleId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobScheduleId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> EnableJobScheduleAsync(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> EnableJobScheduleAsync(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobScheduleId, nameof(jobScheduleId));
 
-            return await EnableJobScheduleAsync(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await EnableJobScheduleAsync(jobScheduleId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -4867,8 +4867,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to terminates. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4878,13 +4878,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response TerminateJobScheduleInternal(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, bool? force, RequestContext context)
+        internal virtual Response TerminateJobScheduleInternal(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, bool? force, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.TerminateJobScheduleInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateTerminateJobScheduleInternalRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, force, context);
+                using HttpMessage message = CreateTerminateJobScheduleInternalRequest(jobScheduleId, timeout, requestDate, requestConditions, force, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -4903,8 +4903,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to terminates. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4914,13 +4914,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> TerminateJobScheduleInternalAsync(string jobScheduleId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, bool? force, RequestContext context)
+        internal virtual async Task<Response> TerminateJobScheduleInternalAsync(string jobScheduleId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, bool? force, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.TerminateJobScheduleInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateTerminateJobScheduleInternalRequest(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, force, context);
+                using HttpMessage message = CreateTerminateJobScheduleInternalRequest(jobScheduleId, timeout, requestDate, requestConditions, force, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -4932,8 +4932,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> Terminates a Job Schedule. </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to terminates. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4942,15 +4942,15 @@ namespace Azure.Compute.Batch
         /// <param name="force"> If true, the server will terminate the JobSchedule even if the corresponding nodes have not fully processed the termination. The default value is false. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response TerminateJobScheduleInternal(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
+        internal virtual Response TerminateJobScheduleInternal(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
         {
-            return TerminateJobScheduleInternal(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, force, cancellationToken.ToRequestContext());
+            return TerminateJobScheduleInternal(jobScheduleId, timeout, requestDate, requestConditions, force, cancellationToken.ToRequestContext());
         }
 
         /// <summary> Terminates a Job Schedule. </summary>
         /// <param name="jobScheduleId"> The ID of the Job Schedule to terminates. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4959,9 +4959,9 @@ namespace Azure.Compute.Batch
         /// <param name="force"> If true, the server will terminate the JobSchedule even if the corresponding nodes have not fully processed the termination. The default value is false. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> TerminateJobScheduleInternalAsync(string jobScheduleId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> TerminateJobScheduleInternalAsync(string jobScheduleId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, bool? force = default, CancellationToken cancellationToken = default)
         {
-            return await TerminateJobScheduleInternalAsync(jobScheduleId, timeOutInSeconds, ocpDate, requestConditions, force, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await TerminateJobScheduleInternalAsync(jobScheduleId, timeout, requestDate, requestConditions, force, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -4973,8 +4973,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -4983,7 +4983,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="content"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response CreateJobSchedule(RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual Response CreateJobSchedule(RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreateJobSchedule");
             scope.Start();
@@ -4991,7 +4991,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreateJobScheduleRequest(content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreateJobScheduleRequest(content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -5010,8 +5010,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5020,7 +5020,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="content"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> CreateJobScheduleAsync(RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual async Task<Response> CreateJobScheduleAsync(RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreateJobSchedule");
             scope.Start();
@@ -5028,7 +5028,7 @@ namespace Azure.Compute.Batch
             {
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreateJobScheduleRequest(content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreateJobScheduleRequest(content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -5040,8 +5040,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> Creates a Job Schedule to the specified Account. </summary>
         /// <param name="jobSchedule"> The Job Schedule to be created. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5049,17 +5049,17 @@ namespace Azure.Compute.Batch
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="jobSchedule"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response CreateJobSchedule(BatchJobScheduleCreateOptions jobSchedule, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response CreateJobSchedule(BatchJobScheduleCreateOptions jobSchedule, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNull(jobSchedule, nameof(jobSchedule));
 
-            return CreateJobSchedule(jobSchedule, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return CreateJobSchedule(jobSchedule, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary> Creates a Job Schedule to the specified Account. </summary>
         /// <param name="jobSchedule"> The Job Schedule to be created. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5067,11 +5067,11 @@ namespace Azure.Compute.Batch
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="jobSchedule"/> is null. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> CreateJobScheduleAsync(BatchJobScheduleCreateOptions jobSchedule, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> CreateJobScheduleAsync(BatchJobScheduleCreateOptions jobSchedule, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNull(jobSchedule, nameof(jobSchedule));
 
-            return await CreateJobScheduleAsync(jobSchedule, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await CreateJobScheduleAsync(jobSchedule, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -5082,8 +5082,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5101,12 +5101,12 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetJobSchedules(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual Pageable<BinaryData> GetJobSchedules(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             return new BatchClientGetJobSchedulesCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -5122,8 +5122,8 @@ namespace Azure.Compute.Batch
         /// </item>
         /// </list>
         /// </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5141,12 +5141,12 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetJobSchedulesAsync(TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetJobSchedulesAsync(TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             return new BatchClientGetJobSchedulesAsyncCollectionResult(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -5155,8 +5155,8 @@ namespace Azure.Compute.Batch
         }
 
         /// <summary> Lists all of the Job Schedules in the specified Account. </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5173,12 +5173,12 @@ namespace Azure.Compute.Batch
         /// <param name="expand"> An OData $expand clause. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchJobSchedule> GetJobSchedules(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchJobSchedule> GetJobSchedules(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetJobSchedulesCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -5187,8 +5187,8 @@ namespace Azure.Compute.Batch
         }
 
         /// <summary> Lists all of the Job Schedules in the specified Account. </summary>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5205,12 +5205,12 @@ namespace Azure.Compute.Batch
         /// <param name="expand"> An OData $expand clause. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchJobSchedule> GetJobSchedulesAsync(TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchJobSchedule> GetJobSchedulesAsync(TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             return new BatchClientGetJobSchedulesAsyncCollectionResultOfT(
                 this,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -5230,8 +5230,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to which the Task is to be created. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5241,7 +5241,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response CreateTask(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual Response CreateTask(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreateTask");
             scope.Start();
@@ -5250,7 +5250,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreateTaskRequest(jobId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreateTaskRequest(jobId, content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -5272,8 +5272,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to which the Task is to be created. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5283,7 +5283,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> CreateTaskAsync(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual async Task<Response> CreateTaskAsync(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreateTask");
             scope.Start();
@@ -5292,7 +5292,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreateTaskRequest(jobId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreateTaskRequest(jobId, content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -5309,8 +5309,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to which the Task is to be created. </param>
         /// <param name="task"> The Task to be created. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5319,12 +5319,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="task"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response CreateTask(string jobId, BatchTaskCreateOptions task, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response CreateTask(string jobId, BatchTaskCreateOptions task, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNull(task, nameof(task));
 
-            return CreateTask(jobId, task, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return CreateTask(jobId, task, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -5334,8 +5334,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to which the Task is to be created. </param>
         /// <param name="task"> The Task to be created. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5344,12 +5344,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="task"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> CreateTaskAsync(string jobId, BatchTaskCreateOptions task, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> CreateTaskAsync(string jobId, BatchTaskCreateOptions task, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNull(task, nameof(task));
 
-            return await CreateTaskAsync(jobId, task, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await CreateTaskAsync(jobId, task, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -5363,8 +5363,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5384,15 +5384,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetTasks(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual Pageable<BinaryData> GetTasks(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
             return new BatchClientGetTasksCollectionResult(
                 this,
                 jobId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -5411,8 +5411,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5432,15 +5432,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetTasksAsync(string jobId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetTasksAsync(string jobId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
             return new BatchClientGetTasksAsyncCollectionResult(
                 this,
                 jobId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -5454,8 +5454,8 @@ namespace Azure.Compute.Batch
         /// information about subtasks.
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5474,15 +5474,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchTask> GetTasks(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchTask> GetTasks(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
             return new BatchClientGetTasksCollectionResultOfT(
                 this,
                 jobId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -5496,8 +5496,8 @@ namespace Azure.Compute.Batch
         /// information about subtasks.
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5516,15 +5516,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchTask> GetTasksAsync(string jobId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchTask> GetTasksAsync(string jobId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
 
             return new BatchClientGetTasksAsyncCollectionResultOfT(
                 this,
                 jobId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -5555,8 +5555,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to which the Task collection is to be added. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5566,7 +5566,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response CreateTaskCollection(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual Response CreateTaskCollection(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreateTaskCollection");
             scope.Start();
@@ -5575,7 +5575,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreateTaskCollectionRequest(jobId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreateTaskCollectionRequest(jobId, content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -5608,8 +5608,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to which the Task collection is to be added. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5619,7 +5619,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> CreateTaskCollectionAsync(string jobId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual async Task<Response> CreateTaskCollectionAsync(string jobId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreateTaskCollection");
             scope.Start();
@@ -5628,7 +5628,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreateTaskCollectionRequest(jobId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreateTaskCollectionRequest(jobId, content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -5656,8 +5656,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to which the Task collection is to be added. </param>
         /// <param name="taskCollection"> The Tasks to be added. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5666,12 +5666,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskCollection"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BatchCreateTaskCollectionResult> CreateTaskCollection(string jobId, BatchTaskGroup taskCollection, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response<BatchCreateTaskCollectionResult> CreateTaskCollection(string jobId, BatchTaskGroup taskCollection, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNull(taskCollection, nameof(taskCollection));
 
-            Response result = CreateTaskCollection(jobId, taskCollection, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            Response result = CreateTaskCollection(jobId, taskCollection, timeout, requestDate, cancellationToken.ToRequestContext());
             return Response.FromValue((BatchCreateTaskCollectionResult)result, result);
         }
 
@@ -5693,8 +5693,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job to which the Task collection is to be added. </param>
         /// <param name="taskCollection"> The Tasks to be added. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5703,12 +5703,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskCollection"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BatchCreateTaskCollectionResult>> CreateTaskCollectionAsync(string jobId, BatchTaskGroup taskCollection, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BatchCreateTaskCollectionResult>> CreateTaskCollectionAsync(string jobId, BatchTaskGroup taskCollection, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNull(taskCollection, nameof(taskCollection));
 
-            Response result = await CreateTaskCollectionAsync(jobId, taskCollection, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await CreateTaskCollectionAsync(jobId, taskCollection, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((BatchCreateTaskCollectionResult)result, result);
         }
 
@@ -5726,8 +5726,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job from which to delete the Task. </param>
         /// <param name="taskId"> The ID of the Task to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5738,7 +5738,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response DeleteTask(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        public virtual Response DeleteTask(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteTask");
             scope.Start();
@@ -5747,7 +5747,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-                using HttpMessage message = CreateDeleteTaskRequest(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateDeleteTaskRequest(jobId, taskId, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -5771,8 +5771,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job from which to delete the Task. </param>
         /// <param name="taskId"> The ID of the Task to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5783,7 +5783,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> DeleteTaskAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        public virtual async Task<Response> DeleteTaskAsync(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteTask");
             scope.Start();
@@ -5792,7 +5792,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-                using HttpMessage message = CreateDeleteTaskRequest(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateDeleteTaskRequest(jobId, taskId, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -5811,8 +5811,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job from which to delete the Task. </param>
         /// <param name="taskId"> The ID of the Task to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5822,12 +5822,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response DeleteTask(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual Response DeleteTask(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-            return DeleteTask(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return DeleteTask(jobId, taskId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -5839,8 +5839,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job from which to delete the Task. </param>
         /// <param name="taskId"> The ID of the Task to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5850,12 +5850,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> DeleteTaskAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> DeleteTaskAsync(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-            return await DeleteTaskAsync(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DeleteTaskAsync(jobId, taskId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -5870,8 +5870,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5884,7 +5884,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response GetTask(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual Response GetTask(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetTask");
             scope.Start();
@@ -5893,7 +5893,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-                using HttpMessage message = CreateGetTaskRequest(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, context);
+                using HttpMessage message = CreateGetTaskRequest(jobId, taskId, timeout, requestDate, requestConditions, @select, expand, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -5915,8 +5915,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5929,7 +5929,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> GetTaskAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
+        public virtual async Task<Response> GetTaskAsync(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, IEnumerable<string> @select, IEnumerable<string> expand, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetTask");
             scope.Start();
@@ -5938,7 +5938,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-                using HttpMessage message = CreateGetTaskRequest(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, context);
+                using HttpMessage message = CreateGetTaskRequest(jobId, taskId, timeout, requestDate, requestConditions, @select, expand, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -5955,8 +5955,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5968,12 +5968,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BatchTask> GetTask(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual Response<BatchTask> GetTask(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-            Response result = GetTask(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, cancellationToken.ToRequestContext());
+            Response result = GetTask(jobId, taskId, timeout, requestDate, requestConditions, @select, expand, cancellationToken.ToRequestContext());
             return Response.FromValue((BatchTask)result, result);
         }
 
@@ -5984,8 +5984,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -5997,12 +5997,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BatchTask>> GetTaskAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BatchTask>> GetTaskAsync(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, IEnumerable<string> @select = default, IEnumerable<string> expand = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-            Response result = await GetTaskAsync(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, @select, expand, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await GetTaskAsync(jobId, taskId, timeout, requestDate, requestConditions, @select, expand, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((BatchTask)result, result);
         }
 
@@ -6017,8 +6017,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6029,7 +6029,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response ReplaceTask(string jobId, string taskId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual Response ReplaceTask(string jobId, string taskId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReplaceTask");
             scope.Start();
@@ -6039,7 +6039,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateReplaceTaskRequest(jobId, taskId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateReplaceTaskRequest(jobId, taskId, content, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -6060,8 +6060,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6072,7 +6072,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> ReplaceTaskAsync(string jobId, string taskId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, RequestContext context = null)
+        public virtual async Task<Response> ReplaceTaskAsync(string jobId, string taskId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReplaceTask");
             scope.Start();
@@ -6082,7 +6082,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateReplaceTaskRequest(jobId, taskId, content, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateReplaceTaskRequest(jobId, taskId, content, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -6096,8 +6096,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to update. </param>
         /// <param name="task"> The Task to update. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6107,21 +6107,21 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="task"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response ReplaceTask(string jobId, string taskId, BatchTask task, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual Response ReplaceTask(string jobId, string taskId, BatchTask task, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
             Argument.AssertNotNull(task, nameof(task));
 
-            return ReplaceTask(jobId, taskId, task, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return ReplaceTask(jobId, taskId, task, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary> Updates the properties of the specified Task. </summary>
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to update. </param>
         /// <param name="task"> The Task to update. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6131,13 +6131,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="task"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> ReplaceTaskAsync(string jobId, string taskId, BatchTask task, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> ReplaceTaskAsync(string jobId, string taskId, BatchTask task, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
             Argument.AssertNotNull(task, nameof(task));
 
-            return await ReplaceTaskAsync(jobId, taskId, task, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await ReplaceTaskAsync(jobId, taskId, task, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -6150,8 +6150,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
         /// <param name="taskId"> The ID of the Task. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6162,7 +6162,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetSubTasks(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, IEnumerable<string> @select, RequestContext context)
+        public virtual Pageable<BinaryData> GetSubTasks(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, IEnumerable<string> @select, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
@@ -6171,8 +6171,8 @@ namespace Azure.Compute.Batch
                 this,
                 jobId,
                 taskId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 @select,
                 context);
         }
@@ -6187,8 +6187,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job. </param>
         /// <param name="taskId"> The ID of the Task. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6199,7 +6199,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetSubTasksAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, IEnumerable<string> @select, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetSubTasksAsync(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, IEnumerable<string> @select, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
@@ -6208,8 +6208,8 @@ namespace Azure.Compute.Batch
                 this,
                 jobId,
                 taskId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 @select,
                 context);
         }
@@ -6217,8 +6217,8 @@ namespace Azure.Compute.Batch
         /// <summary> If the Task is not a multi-instance Task then this returns an empty collection. </summary>
         /// <param name="jobId"> The ID of the Job. </param>
         /// <param name="taskId"> The ID of the Task. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6228,7 +6228,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchSubtask> GetSubTasks(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchSubtask> GetSubTasks(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
@@ -6237,8 +6237,8 @@ namespace Azure.Compute.Batch
                 this,
                 jobId,
                 taskId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 @select,
                 cancellationToken.ToRequestContext());
         }
@@ -6246,8 +6246,8 @@ namespace Azure.Compute.Batch
         /// <summary> If the Task is not a multi-instance Task then this returns an empty collection. </summary>
         /// <param name="jobId"> The ID of the Job. </param>
         /// <param name="taskId"> The ID of the Task. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6257,7 +6257,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchSubtask> GetSubTasksAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchSubtask> GetSubTasksAsync(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
@@ -6266,8 +6266,8 @@ namespace Azure.Compute.Batch
                 this,
                 jobId,
                 taskId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 @select,
                 cancellationToken.ToRequestContext());
         }
@@ -6284,8 +6284,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to terminate. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6296,7 +6296,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response TerminateTask(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        public virtual Response TerminateTask(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.TerminateTask");
             scope.Start();
@@ -6305,7 +6305,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-                using HttpMessage message = CreateTerminateTaskRequest(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateTerminateTaskRequest(jobId, taskId, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -6327,8 +6327,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to terminate. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6339,7 +6339,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> TerminateTaskAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        public virtual async Task<Response> TerminateTaskAsync(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.TerminateTask");
             scope.Start();
@@ -6348,7 +6348,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-                using HttpMessage message = CreateTerminateTaskRequest(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateTerminateTaskRequest(jobId, taskId, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -6365,8 +6365,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to terminate. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6376,12 +6376,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response TerminateTask(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual Response TerminateTask(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-            return TerminateTask(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return TerminateTask(jobId, taskId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -6391,8 +6391,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to terminate. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6402,12 +6402,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> TerminateTaskAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> TerminateTaskAsync(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-            return await TerminateTaskAsync(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await TerminateTaskAsync(jobId, taskId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -6426,8 +6426,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to reactivate. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6438,7 +6438,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response ReactivateTask(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        public virtual Response ReactivateTask(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReactivateTask");
             scope.Start();
@@ -6447,7 +6447,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-                using HttpMessage message = CreateReactivateTaskRequest(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateReactivateTaskRequest(jobId, taskId, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -6473,8 +6473,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to reactivate. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6485,7 +6485,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> ReactivateTaskAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        public virtual async Task<Response> ReactivateTaskAsync(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReactivateTask");
             scope.Start();
@@ -6494,7 +6494,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-                using HttpMessage message = CreateReactivateTaskRequest(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateReactivateTaskRequest(jobId, taskId, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -6515,8 +6515,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to reactivate. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6526,12 +6526,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response ReactivateTask(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual Response ReactivateTask(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-            return ReactivateTask(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return ReactivateTask(jobId, taskId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -6545,8 +6545,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job containing the Task. </param>
         /// <param name="taskId"> The ID of the Task to reactivate. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6556,12 +6556,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> ReactivateTaskAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> ReactivateTaskAsync(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
 
-            return await ReactivateTaskAsync(jobId, taskId, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await ReactivateTaskAsync(jobId, taskId, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -6575,8 +6575,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6592,7 +6592,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response DeleteTaskFile(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, bool? recursive, RequestContext context)
+        public virtual Response DeleteTaskFile(string jobId, string taskId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, bool? recursive, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteTaskFile");
             scope.Start();
@@ -6602,7 +6602,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
                 Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-                using HttpMessage message = CreateDeleteTaskFileRequest(jobId, taskId, filePath, timeOutInSeconds, ocpDate, recursive, context);
+                using HttpMessage message = CreateDeleteTaskFileRequest(jobId, taskId, filePath, timeout, requestDate, recursive, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -6623,8 +6623,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6640,7 +6640,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> DeleteTaskFileAsync(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, bool? recursive, RequestContext context)
+        public virtual async Task<Response> DeleteTaskFileAsync(string jobId, string taskId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, bool? recursive, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteTaskFile");
             scope.Start();
@@ -6650,7 +6650,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
                 Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-                using HttpMessage message = CreateDeleteTaskFileRequest(jobId, taskId, filePath, timeOutInSeconds, ocpDate, recursive, context);
+                using HttpMessage message = CreateDeleteTaskFileRequest(jobId, taskId, filePath, timeout, requestDate, recursive, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -6664,8 +6664,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6680,21 +6680,21 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response DeleteTaskFile(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, bool? recursive = default, CancellationToken cancellationToken = default)
+        public virtual Response DeleteTaskFile(string jobId, string taskId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, bool? recursive = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
             Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-            return DeleteTaskFile(jobId, taskId, filePath, timeOutInSeconds, ocpDate, recursive, cancellationToken.ToRequestContext());
+            return DeleteTaskFile(jobId, taskId, filePath, timeout, requestDate, recursive, cancellationToken.ToRequestContext());
         }
 
         /// <summary> Deletes the specified Task file from the Compute Node where the Task ran. </summary>
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6709,13 +6709,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> DeleteTaskFileAsync(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, bool? recursive = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> DeleteTaskFileAsync(string jobId, string taskId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, bool? recursive = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
             Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-            return await DeleteTaskFileAsync(jobId, taskId, filePath, timeOutInSeconds, ocpDate, recursive, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DeleteTaskFileAsync(jobId, taskId, filePath, timeout, requestDate, recursive, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -6729,8 +6729,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6745,7 +6745,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response GetTaskFile(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, string ocpRange, RequestContext context)
+        public virtual Response GetTaskFile(string jobId, string taskId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, string ocpRange, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetTaskFile");
             scope.Start();
@@ -6764,7 +6764,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
                 Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-                using HttpMessage message = CreateGetTaskFileRequest(jobId, taskId, filePath, timeOutInSeconds, ocpDate, requestConditions, ocpRange, context);
+                using HttpMessage message = CreateGetTaskFileRequest(jobId, taskId, filePath, timeout, requestDate, requestConditions, ocpRange, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -6785,8 +6785,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6801,7 +6801,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> GetTaskFileAsync(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, string ocpRange, RequestContext context)
+        public virtual async Task<Response> GetTaskFileAsync(string jobId, string taskId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, string ocpRange, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetTaskFile");
             scope.Start();
@@ -6820,7 +6820,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
                 Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-                using HttpMessage message = CreateGetTaskFileRequest(jobId, taskId, filePath, timeOutInSeconds, ocpDate, requestConditions, ocpRange, context);
+                using HttpMessage message = CreateGetTaskFileRequest(jobId, taskId, filePath, timeout, requestDate, requestConditions, ocpRange, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -6834,8 +6834,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6849,13 +6849,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BinaryData> GetTaskFile(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, string ocpRange = default, CancellationToken cancellationToken = default)
+        public virtual Response<BinaryData> GetTaskFile(string jobId, string taskId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, string ocpRange = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
             Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-            Response result = GetTaskFile(jobId, taskId, filePath, timeOutInSeconds, ocpDate, requestConditions, ocpRange, cancellationToken.ToRequestContext());
+            Response result = GetTaskFile(jobId, taskId, filePath, timeout, requestDate, requestConditions, ocpRange, cancellationToken.ToRequestContext());
             return Response.FromValue(result.Content, result);
         }
 
@@ -6863,8 +6863,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6878,13 +6878,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/>, <paramref name="taskId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BinaryData>> GetTaskFileAsync(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, string ocpRange = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BinaryData>> GetTaskFileAsync(string jobId, string taskId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, string ocpRange = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
             Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-            Response result = await GetTaskFileAsync(jobId, taskId, filePath, timeOutInSeconds, ocpDate, requestConditions, ocpRange, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await GetTaskFileAsync(jobId, taskId, filePath, timeout, requestDate, requestConditions, ocpRange, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue(result.Content, result);
         }
 
@@ -6899,8 +6899,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6909,7 +6909,7 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response GetTaskFilePropertiesInternal(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        internal virtual Response GetTaskFilePropertiesInternal(string jobId, string taskId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetTaskFilePropertiesInternal");
             scope.Start();
@@ -6924,7 +6924,7 @@ namespace Azure.Compute.Batch
                     throw new ArgumentException("Service does not support the If-None-Match header for this operation.");
                 }
 
-                using HttpMessage message = CreateGetTaskFilePropertiesInternalRequest(jobId, taskId, filePath, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateGetTaskFilePropertiesInternalRequest(jobId, taskId, filePath, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -6945,8 +6945,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6955,7 +6955,7 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> GetTaskFilePropertiesInternalAsync(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        internal virtual async Task<Response> GetTaskFilePropertiesInternalAsync(string jobId, string taskId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetTaskFilePropertiesInternal");
             scope.Start();
@@ -6970,7 +6970,7 @@ namespace Azure.Compute.Batch
                     throw new ArgumentException("Service does not support the If-None-Match header for this operation.");
                 }
 
-                using HttpMessage message = CreateGetTaskFilePropertiesInternalRequest(jobId, taskId, filePath, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateGetTaskFilePropertiesInternalRequest(jobId, taskId, filePath, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -6984,8 +6984,8 @@ namespace Azure.Compute.Batch
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -6993,17 +6993,17 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response GetTaskFilePropertiesInternal(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual Response GetTaskFilePropertiesInternal(string jobId, string taskId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return GetTaskFilePropertiesInternal(jobId, taskId, filePath, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return GetTaskFilePropertiesInternal(jobId, taskId, filePath, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary> Gets the properties of the specified Task file. </summary>
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose file you want to retrieve. </param>
         /// <param name="filePath"> The path to the Task file that you want to get the content of. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7011,9 +7011,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> GetTaskFilePropertiesInternalAsync(string jobId, string taskId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> GetTaskFilePropertiesInternalAsync(string jobId, string taskId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return await GetTaskFilePropertiesInternalAsync(jobId, taskId, filePath, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await GetTaskFilePropertiesInternalAsync(jobId, taskId, filePath, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -7026,8 +7026,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose files you want to list. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7049,7 +7049,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetTaskFiles(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, bool? recursive, RequestContext context)
+        public virtual Pageable<BinaryData> GetTaskFiles(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, bool? recursive, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
@@ -7058,8 +7058,8 @@ namespace Azure.Compute.Batch
                 this,
                 jobId,
                 taskId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 recursive,
@@ -7076,8 +7076,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose files you want to list. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7099,7 +7099,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetTaskFilesAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, bool? recursive, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetTaskFilesAsync(string jobId, string taskId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, bool? recursive, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
@@ -7108,8 +7108,8 @@ namespace Azure.Compute.Batch
                 this,
                 jobId,
                 taskId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 recursive,
@@ -7119,8 +7119,8 @@ namespace Azure.Compute.Batch
         /// <summary> Lists the files in a Task's directory on its Compute Node. </summary>
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose files you want to list. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7141,7 +7141,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchNodeFile> GetTaskFiles(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, bool? recursive = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchNodeFile> GetTaskFiles(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, bool? recursive = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
@@ -7150,8 +7150,8 @@ namespace Azure.Compute.Batch
                 this,
                 jobId,
                 taskId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 recursive,
@@ -7161,8 +7161,8 @@ namespace Azure.Compute.Batch
         /// <summary> Lists the files in a Task's directory on its Compute Node. </summary>
         /// <param name="jobId"> The ID of the Job that contains the Task. </param>
         /// <param name="taskId"> The ID of the Task whose files you want to list. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7183,7 +7183,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="jobId"/> or <paramref name="taskId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="jobId"/> or <paramref name="taskId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchNodeFile> GetTaskFilesAsync(string jobId, string taskId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, bool? recursive = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchNodeFile> GetTaskFilesAsync(string jobId, string taskId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, bool? recursive = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(jobId, nameof(jobId));
             Argument.AssertNotNullOrEmpty(taskId, nameof(taskId));
@@ -7192,8 +7192,8 @@ namespace Azure.Compute.Batch
                 this,
                 jobId,
                 taskId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 recursive,
@@ -7212,8 +7212,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the machine on which you want to create a user Account. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7223,7 +7223,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response CreateNodeUser(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual Response CreateNodeUser(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreateNodeUser");
             scope.Start();
@@ -7233,7 +7233,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreateNodeUserRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreateNodeUserRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -7255,8 +7255,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the machine on which you want to create a user Account. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7266,7 +7266,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> CreateNodeUserAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual async Task<Response> CreateNodeUserAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.CreateNodeUser");
             scope.Start();
@@ -7276,7 +7276,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateCreateNodeUserRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateCreateNodeUserRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -7293,8 +7293,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the machine on which you want to create a user Account. </param>
         /// <param name="user"> The options to use for creating the user. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7303,13 +7303,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="user"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response CreateNodeUser(string poolId, string nodeId, BatchNodeUserCreateOptions user, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response CreateNodeUser(string poolId, string nodeId, BatchNodeUserCreateOptions user, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNull(user, nameof(user));
 
-            return CreateNodeUser(poolId, nodeId, user, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return CreateNodeUser(poolId, nodeId, user, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -7319,8 +7319,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the machine on which you want to create a user Account. </param>
         /// <param name="user"> The options to use for creating the user. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7329,13 +7329,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="user"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> CreateNodeUserAsync(string poolId, string nodeId, BatchNodeUserCreateOptions user, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> CreateNodeUserAsync(string poolId, string nodeId, BatchNodeUserCreateOptions user, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNull(user, nameof(user));
 
-            return await CreateNodeUserAsync(poolId, nodeId, user, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await CreateNodeUserAsync(poolId, nodeId, user, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -7351,8 +7351,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the machine on which you want to delete a user Account. </param>
         /// <param name="userName"> The name of the user Account to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7362,7 +7362,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="userName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response DeleteNodeUser(string poolId, string nodeId, string userName, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual Response DeleteNodeUser(string poolId, string nodeId, string userName, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteNodeUser");
             scope.Start();
@@ -7372,7 +7372,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNullOrEmpty(userName, nameof(userName));
 
-                using HttpMessage message = CreateDeleteNodeUserRequest(poolId, nodeId, userName, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateDeleteNodeUserRequest(poolId, nodeId, userName, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -7395,8 +7395,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the machine on which you want to delete a user Account. </param>
         /// <param name="userName"> The name of the user Account to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7406,7 +7406,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="userName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> DeleteNodeUserAsync(string poolId, string nodeId, string userName, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual async Task<Response> DeleteNodeUserAsync(string poolId, string nodeId, string userName, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteNodeUser");
             scope.Start();
@@ -7416,7 +7416,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNullOrEmpty(userName, nameof(userName));
 
-                using HttpMessage message = CreateDeleteNodeUserRequest(poolId, nodeId, userName, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateDeleteNodeUserRequest(poolId, nodeId, userName, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -7434,8 +7434,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the machine on which you want to delete a user Account. </param>
         /// <param name="userName"> The name of the user Account to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7444,13 +7444,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="userName"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="userName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response DeleteNodeUser(string poolId, string nodeId, string userName, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response DeleteNodeUser(string poolId, string nodeId, string userName, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNullOrEmpty(userName, nameof(userName));
 
-            return DeleteNodeUser(poolId, nodeId, userName, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return DeleteNodeUser(poolId, nodeId, userName, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -7461,8 +7461,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the machine on which you want to delete a user Account. </param>
         /// <param name="userName"> The name of the user Account to delete. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7471,13 +7471,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="userName"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="userName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> DeleteNodeUserAsync(string poolId, string nodeId, string userName, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> DeleteNodeUserAsync(string poolId, string nodeId, string userName, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNullOrEmpty(userName, nameof(userName));
 
-            return await DeleteNodeUserAsync(poolId, nodeId, userName, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DeleteNodeUserAsync(poolId, nodeId, userName, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -7495,8 +7495,8 @@ namespace Azure.Compute.Batch
         /// <param name="nodeId"> The ID of the machine on which you want to update a user Account. </param>
         /// <param name="userName"> The name of the user Account to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7506,7 +7506,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="userName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response ReplaceNodeUser(string poolId, string nodeId, string userName, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual Response ReplaceNodeUser(string poolId, string nodeId, string userName, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReplaceNodeUser");
             scope.Start();
@@ -7517,7 +7517,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(userName, nameof(userName));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateReplaceNodeUserRequest(poolId, nodeId, userName, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateReplaceNodeUserRequest(poolId, nodeId, userName, content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -7542,8 +7542,8 @@ namespace Azure.Compute.Batch
         /// <param name="nodeId"> The ID of the machine on which you want to update a user Account. </param>
         /// <param name="userName"> The name of the user Account to update. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7553,7 +7553,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="userName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> ReplaceNodeUserAsync(string poolId, string nodeId, string userName, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual async Task<Response> ReplaceNodeUserAsync(string poolId, string nodeId, string userName, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReplaceNodeUser");
             scope.Start();
@@ -7564,7 +7564,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(userName, nameof(userName));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateReplaceNodeUserRequest(poolId, nodeId, userName, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateReplaceNodeUserRequest(poolId, nodeId, userName, content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -7584,8 +7584,8 @@ namespace Azure.Compute.Batch
         /// <param name="nodeId"> The ID of the machine on which you want to update a user Account. </param>
         /// <param name="userName"> The name of the user Account to update. </param>
         /// <param name="updateOptions"> The options to use for updating the user. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7594,14 +7594,14 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/>, <paramref name="userName"/> or <paramref name="updateOptions"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="userName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response ReplaceNodeUser(string poolId, string nodeId, string userName, BatchNodeUserUpdateOptions updateOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response ReplaceNodeUser(string poolId, string nodeId, string userName, BatchNodeUserUpdateOptions updateOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNullOrEmpty(userName, nameof(userName));
             Argument.AssertNotNull(updateOptions, nameof(updateOptions));
 
-            return ReplaceNodeUser(poolId, nodeId, userName, updateOptions, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return ReplaceNodeUser(poolId, nodeId, userName, updateOptions, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -7614,8 +7614,8 @@ namespace Azure.Compute.Batch
         /// <param name="nodeId"> The ID of the machine on which you want to update a user Account. </param>
         /// <param name="userName"> The name of the user Account to update. </param>
         /// <param name="updateOptions"> The options to use for updating the user. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7624,14 +7624,14 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/>, <paramref name="userName"/> or <paramref name="updateOptions"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="userName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> ReplaceNodeUserAsync(string poolId, string nodeId, string userName, BatchNodeUserUpdateOptions updateOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> ReplaceNodeUserAsync(string poolId, string nodeId, string userName, BatchNodeUserUpdateOptions updateOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNullOrEmpty(userName, nameof(userName));
             Argument.AssertNotNull(updateOptions, nameof(updateOptions));
 
-            return await ReplaceNodeUserAsync(poolId, nodeId, userName, updateOptions, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await ReplaceNodeUserAsync(poolId, nodeId, userName, updateOptions, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -7644,8 +7644,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7656,7 +7656,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response GetNode(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, IEnumerable<string> @select, RequestContext context)
+        public virtual Response GetNode(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, IEnumerable<string> @select, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetNode");
             scope.Start();
@@ -7665,7 +7665,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-                using HttpMessage message = CreateGetNodeRequest(poolId, nodeId, timeOutInSeconds, ocpDate, @select, context);
+                using HttpMessage message = CreateGetNodeRequest(poolId, nodeId, timeout, requestDate, @select, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -7685,8 +7685,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7697,7 +7697,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> GetNodeAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, IEnumerable<string> @select, RequestContext context)
+        public virtual async Task<Response> GetNodeAsync(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, IEnumerable<string> @select, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetNode");
             scope.Start();
@@ -7706,7 +7706,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-                using HttpMessage message = CreateGetNodeRequest(poolId, nodeId, timeOutInSeconds, ocpDate, @select, context);
+                using HttpMessage message = CreateGetNodeRequest(poolId, nodeId, timeout, requestDate, @select, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -7719,8 +7719,8 @@ namespace Azure.Compute.Batch
         /// <summary> Gets information about the specified Compute Node. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7730,20 +7730,20 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BatchNode> GetNode(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual Response<BatchNode> GetNode(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-            Response result = GetNode(poolId, nodeId, timeOutInSeconds, ocpDate, @select, cancellationToken.ToRequestContext());
+            Response result = GetNode(poolId, nodeId, timeout, requestDate, @select, cancellationToken.ToRequestContext());
             return Response.FromValue((BatchNode)result, result);
         }
 
         /// <summary> Gets information about the specified Compute Node. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7753,12 +7753,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BatchNode>> GetNodeAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BatchNode>> GetNodeAsync(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-            Response result = await GetNodeAsync(poolId, nodeId, timeOutInSeconds, ocpDate, @select, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await GetNodeAsync(poolId, nodeId, timeout, requestDate, @select, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((BatchNode)result, result);
         }
 
@@ -7773,8 +7773,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7782,13 +7782,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response RebootNodeInternal(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        internal virtual Response RebootNodeInternal(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.RebootNodeInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateRebootNodeInternalRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateRebootNodeInternalRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -7809,8 +7809,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7818,13 +7818,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> RebootNodeInternalAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        internal virtual async Task<Response> RebootNodeInternalAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.RebootNodeInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateRebootNodeInternalRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateRebootNodeInternalRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -7838,34 +7838,34 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="options"> The options to use for rebooting the Compute Node. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response RebootNodeInternal(string poolId, string nodeId, BatchNodeRebootOptions options = default, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        internal virtual Response RebootNodeInternal(string poolId, string nodeId, BatchNodeRebootOptions options = default, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
-            return RebootNodeInternal(poolId, nodeId, options, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return RebootNodeInternal(poolId, nodeId, options, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary> You can restart a Compute Node only if it is in an idle or running state. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="options"> The options to use for rebooting the Compute Node. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> RebootNodeInternalAsync(string poolId, string nodeId, BatchNodeRebootOptions options = default, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> RebootNodeInternalAsync(string poolId, string nodeId, BatchNodeRebootOptions options = default, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
-            return await RebootNodeInternalAsync(poolId, nodeId, options, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await RebootNodeInternalAsync(poolId, nodeId, options, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -7878,8 +7878,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7887,13 +7887,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response StartNodeInternal(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        internal virtual Response StartNodeInternal(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.StartNodeInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateStartNodeInternalRequest(poolId, nodeId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateStartNodeInternalRequest(poolId, nodeId, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -7913,8 +7913,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7922,13 +7922,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> StartNodeInternalAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        internal virtual async Task<Response> StartNodeInternalAsync(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.StartNodeInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateStartNodeInternalRequest(poolId, nodeId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateStartNodeInternalRequest(poolId, nodeId, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -7941,33 +7941,33 @@ namespace Azure.Compute.Batch
         /// <summary> You can start a Compute Node only if it has been deallocated. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response StartNodeInternal(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        internal virtual Response StartNodeInternal(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
-            return StartNodeInternal(poolId, nodeId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return StartNodeInternal(poolId, nodeId, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary> You can start a Compute Node only if it has been deallocated. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> StartNodeInternalAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> StartNodeInternalAsync(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
-            return await StartNodeInternalAsync(poolId, nodeId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await StartNodeInternalAsync(poolId, nodeId, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -7983,8 +7983,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -7992,13 +7992,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response ReimageNodeInternal(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        internal virtual Response ReimageNodeInternal(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReimageNodeInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateReimageNodeInternalRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateReimageNodeInternalRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -8021,8 +8021,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8030,13 +8030,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> ReimageNodeInternalAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        internal virtual async Task<Response> ReimageNodeInternalAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.ReimageNodeInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateReimageNodeInternalRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateReimageNodeInternalRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -8054,17 +8054,17 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="options"> The options to use for reimaging the Compute Node. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response ReimageNodeInternal(string poolId, string nodeId, BatchNodeReimageOptions options = default, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        internal virtual Response ReimageNodeInternal(string poolId, string nodeId, BatchNodeReimageOptions options = default, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
-            return ReimageNodeInternal(poolId, nodeId, options, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return ReimageNodeInternal(poolId, nodeId, options, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -8075,17 +8075,17 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="options"> The options to use for reimaging the Compute Node. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> ReimageNodeInternalAsync(string poolId, string nodeId, BatchNodeReimageOptions options = default, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> ReimageNodeInternalAsync(string poolId, string nodeId, BatchNodeReimageOptions options = default, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
-            return await ReimageNodeInternalAsync(poolId, nodeId, options, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await ReimageNodeInternalAsync(poolId, nodeId, options, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -8099,8 +8099,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8108,13 +8108,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response DeallocateNodeInternal(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        internal virtual Response DeallocateNodeInternal(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeallocateNodeInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateDeallocateNodeInternalRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateDeallocateNodeInternalRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -8135,8 +8135,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8144,13 +8144,13 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> DeallocateNodeInternalAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        internal virtual async Task<Response> DeallocateNodeInternalAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeallocateNodeInternal");
             scope.Start();
             try
             {
-                using HttpMessage message = CreateDeallocateNodeInternalRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateDeallocateNodeInternalRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -8164,34 +8164,34 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="options"> The options to use for deallocating the Compute Node. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response DeallocateNodeInternal(string poolId, string nodeId, BatchNodeDeallocateOptions options = default, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        internal virtual Response DeallocateNodeInternal(string poolId, string nodeId, BatchNodeDeallocateOptions options = default, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
-            return DeallocateNodeInternal(poolId, nodeId, options, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return DeallocateNodeInternal(poolId, nodeId, options, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary> You can deallocate a Compute Node only if it is in an idle or running state. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to restart. </param>
         /// <param name="options"> The options to use for deallocating the Compute Node. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
         /// </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> DeallocateNodeInternalAsync(string poolId, string nodeId, BatchNodeDeallocateOptions options = default, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> DeallocateNodeInternalAsync(string poolId, string nodeId, BatchNodeDeallocateOptions options = default, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
-            return await DeallocateNodeInternalAsync(poolId, nodeId, options, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DeallocateNodeInternalAsync(poolId, nodeId, options, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -8206,8 +8206,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node on which you want to disable Task scheduling. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8217,7 +8217,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response DisableNodeScheduling(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual Response DisableNodeScheduling(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DisableNodeScheduling");
             scope.Start();
@@ -8226,7 +8226,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-                using HttpMessage message = CreateDisableNodeSchedulingRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateDisableNodeSchedulingRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -8248,8 +8248,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node on which you want to disable Task scheduling. </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8259,7 +8259,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> DisableNodeSchedulingAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual async Task<Response> DisableNodeSchedulingAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DisableNodeScheduling");
             scope.Start();
@@ -8268,7 +8268,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-                using HttpMessage message = CreateDisableNodeSchedulingRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateDisableNodeSchedulingRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -8285,8 +8285,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node on which you want to disable Task scheduling. </param>
         /// <param name="options"> The options to use for disabling scheduling on the Compute Node. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8295,12 +8295,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response DisableNodeScheduling(string poolId, string nodeId, BatchNodeDisableSchedulingOptions options = default, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response DisableNodeScheduling(string poolId, string nodeId, BatchNodeDisableSchedulingOptions options = default, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-            return DisableNodeScheduling(poolId, nodeId, options, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return DisableNodeScheduling(poolId, nodeId, options, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -8310,8 +8310,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node on which you want to disable Task scheduling. </param>
         /// <param name="options"> The options to use for disabling scheduling on the Compute Node. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8320,12 +8320,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> DisableNodeSchedulingAsync(string poolId, string nodeId, BatchNodeDisableSchedulingOptions options = default, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> DisableNodeSchedulingAsync(string poolId, string nodeId, BatchNodeDisableSchedulingOptions options = default, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-            return await DisableNodeSchedulingAsync(poolId, nodeId, options, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DisableNodeSchedulingAsync(poolId, nodeId, options, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -8339,8 +8339,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node on which you want to enable Task scheduling. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8350,7 +8350,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response EnableNodeScheduling(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual Response EnableNodeScheduling(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.EnableNodeScheduling");
             scope.Start();
@@ -8359,7 +8359,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-                using HttpMessage message = CreateEnableNodeSchedulingRequest(poolId, nodeId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateEnableNodeSchedulingRequest(poolId, nodeId, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -8380,8 +8380,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node on which you want to enable Task scheduling. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8391,7 +8391,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> EnableNodeSchedulingAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual async Task<Response> EnableNodeSchedulingAsync(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.EnableNodeScheduling");
             scope.Start();
@@ -8400,7 +8400,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-                using HttpMessage message = CreateEnableNodeSchedulingRequest(poolId, nodeId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateEnableNodeSchedulingRequest(poolId, nodeId, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -8416,8 +8416,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node on which you want to enable Task scheduling. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8426,12 +8426,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response EnableNodeScheduling(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response EnableNodeScheduling(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-            return EnableNodeScheduling(poolId, nodeId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            return EnableNodeScheduling(poolId, nodeId, timeout, requestDate, cancellationToken.ToRequestContext());
         }
 
         /// <summary>
@@ -8440,8 +8440,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node on which you want to enable Task scheduling. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8450,12 +8450,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> EnableNodeSchedulingAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> EnableNodeSchedulingAsync(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-            return await EnableNodeSchedulingAsync(poolId, nodeId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await EnableNodeSchedulingAsync(poolId, nodeId, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -8468,8 +8468,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node for which to obtain the remote login settings. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8479,7 +8479,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response GetNodeRemoteLoginSettings(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual Response GetNodeRemoteLoginSettings(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetNodeRemoteLoginSettings");
             scope.Start();
@@ -8488,7 +8488,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-                using HttpMessage message = CreateGetNodeRemoteLoginSettingsRequest(poolId, nodeId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateGetNodeRemoteLoginSettingsRequest(poolId, nodeId, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -8508,8 +8508,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node for which to obtain the remote login settings. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8519,7 +8519,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> GetNodeRemoteLoginSettingsAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestContext context)
+        public virtual async Task<Response> GetNodeRemoteLoginSettingsAsync(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetNodeRemoteLoginSettings");
             scope.Start();
@@ -8528,7 +8528,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-                using HttpMessage message = CreateGetNodeRemoteLoginSettingsRequest(poolId, nodeId, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateGetNodeRemoteLoginSettingsRequest(poolId, nodeId, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -8541,8 +8541,8 @@ namespace Azure.Compute.Batch
         /// <summary> Before you can remotely login to a Compute Node using the remote login settings, you must create a user Account on the Compute Node and configure access ports for SSH and RDP. For more information, see https://learn.microsoft.com/azure/batch/pool-endpoint-configuration. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node for which to obtain the remote login settings. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8551,20 +8551,20 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BatchNodeRemoteLoginSettings> GetNodeRemoteLoginSettings(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response<BatchNodeRemoteLoginSettings> GetNodeRemoteLoginSettings(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-            Response result = GetNodeRemoteLoginSettings(poolId, nodeId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            Response result = GetNodeRemoteLoginSettings(poolId, nodeId, timeout, requestDate, cancellationToken.ToRequestContext());
             return Response.FromValue((BatchNodeRemoteLoginSettings)result, result);
         }
 
         /// <summary> Before you can remotely login to a Compute Node using the remote login settings, you must create a user Account on the Compute Node and configure access ports for SSH and RDP. For more information, see https://learn.microsoft.com/azure/batch/pool-endpoint-configuration. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node for which to obtain the remote login settings. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8573,12 +8573,12 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BatchNodeRemoteLoginSettings>> GetNodeRemoteLoginSettingsAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BatchNodeRemoteLoginSettings>> GetNodeRemoteLoginSettingsAsync(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
 
-            Response result = await GetNodeRemoteLoginSettingsAsync(poolId, nodeId, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await GetNodeRemoteLoginSettingsAsync(poolId, nodeId, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((BatchNodeRemoteLoginSettings)result, result);
         }
 
@@ -8599,8 +8599,8 @@ namespace Azure.Compute.Batch
         /// Protocol file.
         /// </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8610,7 +8610,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response UploadNodeLogs(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual Response UploadNodeLogs(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.UploadNodeLogs");
             scope.Start();
@@ -8620,7 +8620,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateUploadNodeLogsRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateUploadNodeLogsRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -8647,8 +8647,8 @@ namespace Azure.Compute.Batch
         /// Protocol file.
         /// </param>
         /// <param name="content"> The content to send as the body of the request. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8658,7 +8658,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> UploadNodeLogsAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestContext context = null)
+        public virtual async Task<Response> UploadNodeLogsAsync(string poolId, string nodeId, RequestContent content, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestContext context = null)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.UploadNodeLogs");
             scope.Start();
@@ -8668,7 +8668,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNull(content, nameof(content));
 
-                using HttpMessage message = CreateUploadNodeLogsRequest(poolId, nodeId, content, timeOutInSeconds, ocpDate, context);
+                using HttpMessage message = CreateUploadNodeLogsRequest(poolId, nodeId, content, timeout, requestDate, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -8690,8 +8690,8 @@ namespace Azure.Compute.Batch
         /// Protocol file.
         /// </param>
         /// <param name="uploadOptions"> The Azure Batch service log files upload options. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8700,13 +8700,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="uploadOptions"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<UploadBatchServiceLogsResult> UploadNodeLogs(string poolId, string nodeId, UploadBatchServiceLogsOptions uploadOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual Response<UploadBatchServiceLogsResult> UploadNodeLogs(string poolId, string nodeId, UploadBatchServiceLogsOptions uploadOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNull(uploadOptions, nameof(uploadOptions));
 
-            Response result = UploadNodeLogs(poolId, nodeId, uploadOptions, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext());
+            Response result = UploadNodeLogs(poolId, nodeId, uploadOptions, timeout, requestDate, cancellationToken.ToRequestContext());
             return Response.FromValue((UploadBatchServiceLogsResult)result, result);
         }
 
@@ -8722,8 +8722,8 @@ namespace Azure.Compute.Batch
         /// Protocol file.
         /// </param>
         /// <param name="uploadOptions"> The Azure Batch service log files upload options. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8732,13 +8732,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="uploadOptions"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<UploadBatchServiceLogsResult>> UploadNodeLogsAsync(string poolId, string nodeId, UploadBatchServiceLogsOptions uploadOptions, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<UploadBatchServiceLogsResult>> UploadNodeLogsAsync(string poolId, string nodeId, UploadBatchServiceLogsOptions uploadOptions, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNull(uploadOptions, nameof(uploadOptions));
 
-            Response result = await UploadNodeLogsAsync(poolId, nodeId, uploadOptions, timeOutInSeconds, ocpDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await UploadNodeLogsAsync(poolId, nodeId, uploadOptions, timeout, requestDate, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((UploadBatchServiceLogsResult)result, result);
         }
 
@@ -8751,8 +8751,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool from which you want to list Compute Nodes. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8771,15 +8771,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetNodes(string poolId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, RequestContext context)
+        public virtual Pageable<BinaryData> GetNodes(string poolId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
             return new BatchClientGetNodesCollectionResult(
                 this,
                 poolId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -8795,8 +8795,8 @@ namespace Azure.Compute.Batch
         /// </list>
         /// </summary>
         /// <param name="poolId"> The ID of the Pool from which you want to list Compute Nodes. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8815,15 +8815,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetNodesAsync(string poolId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, IEnumerable<string> @select, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetNodesAsync(string poolId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, IEnumerable<string> @select, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
             return new BatchClientGetNodesAsyncCollectionResult(
                 this,
                 poolId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -8832,8 +8832,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> Lists the Compute Nodes in the specified Pool. </summary>
         /// <param name="poolId"> The ID of the Pool from which you want to list Compute Nodes. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8851,15 +8851,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchNode> GetNodes(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchNode> GetNodes(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
             return new BatchClientGetNodesCollectionResultOfT(
                 this,
                 poolId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -8868,8 +8868,8 @@ namespace Azure.Compute.Batch
 
         /// <summary> Lists the Compute Nodes in the specified Pool. </summary>
         /// <param name="poolId"> The ID of the Pool from which you want to list Compute Nodes. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8887,15 +8887,15 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchNode> GetNodesAsync(string poolId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchNode> GetNodesAsync(string poolId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
 
             return new BatchClientGetNodesAsyncCollectionResultOfT(
                 this,
                 poolId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 @select,
@@ -8913,8 +8913,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that contains the extensions. </param>
         /// <param name="extensionName"> The name of the Compute Node Extension that you want to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8925,7 +8925,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="extensionName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response GetNodeExtension(string poolId, string nodeId, string extensionName, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, IEnumerable<string> @select, RequestContext context)
+        public virtual Response GetNodeExtension(string poolId, string nodeId, string extensionName, TimeSpan? timeout, DateTimeOffset? requestDate, IEnumerable<string> @select, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetNodeExtension");
             scope.Start();
@@ -8935,7 +8935,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNullOrEmpty(extensionName, nameof(extensionName));
 
-                using HttpMessage message = CreateGetNodeExtensionRequest(poolId, nodeId, extensionName, timeOutInSeconds, ocpDate, @select, context);
+                using HttpMessage message = CreateGetNodeExtensionRequest(poolId, nodeId, extensionName, timeout, requestDate, @select, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -8956,8 +8956,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that contains the extensions. </param>
         /// <param name="extensionName"> The name of the Compute Node Extension that you want to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -8968,7 +8968,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="extensionName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> GetNodeExtensionAsync(string poolId, string nodeId, string extensionName, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, IEnumerable<string> @select, RequestContext context)
+        public virtual async Task<Response> GetNodeExtensionAsync(string poolId, string nodeId, string extensionName, TimeSpan? timeout, DateTimeOffset? requestDate, IEnumerable<string> @select, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetNodeExtension");
             scope.Start();
@@ -8978,7 +8978,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNullOrEmpty(extensionName, nameof(extensionName));
 
-                using HttpMessage message = CreateGetNodeExtensionRequest(poolId, nodeId, extensionName, timeOutInSeconds, ocpDate, @select, context);
+                using HttpMessage message = CreateGetNodeExtensionRequest(poolId, nodeId, extensionName, timeout, requestDate, @select, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -8992,8 +8992,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that contains the extensions. </param>
         /// <param name="extensionName"> The name of the Compute Node Extension that you want to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9003,13 +9003,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="extensionName"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="extensionName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BatchNodeVMExtension> GetNodeExtension(string poolId, string nodeId, string extensionName, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual Response<BatchNodeVMExtension> GetNodeExtension(string poolId, string nodeId, string extensionName, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNullOrEmpty(extensionName, nameof(extensionName));
 
-            Response result = GetNodeExtension(poolId, nodeId, extensionName, timeOutInSeconds, ocpDate, @select, cancellationToken.ToRequestContext());
+            Response result = GetNodeExtension(poolId, nodeId, extensionName, timeout, requestDate, @select, cancellationToken.ToRequestContext());
             return Response.FromValue((BatchNodeVMExtension)result, result);
         }
 
@@ -9017,8 +9017,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that contains the extensions. </param>
         /// <param name="extensionName"> The name of the Compute Node Extension that you want to get information about. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9028,13 +9028,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="extensionName"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="extensionName"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BatchNodeVMExtension>> GetNodeExtensionAsync(string poolId, string nodeId, string extensionName, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BatchNodeVMExtension>> GetNodeExtensionAsync(string poolId, string nodeId, string extensionName, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNullOrEmpty(extensionName, nameof(extensionName));
 
-            Response result = await GetNodeExtensionAsync(poolId, nodeId, extensionName, timeOutInSeconds, ocpDate, @select, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await GetNodeExtensionAsync(poolId, nodeId, extensionName, timeout, requestDate, @select, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue((BatchNodeVMExtension)result, result);
         }
 
@@ -9048,8 +9048,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to list extensions. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9064,7 +9064,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetNodeExtensions(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, IEnumerable<string> @select, RequestContext context)
+        public virtual Pageable<BinaryData> GetNodeExtensions(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, IEnumerable<string> @select, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
@@ -9073,8 +9073,8 @@ namespace Azure.Compute.Batch
                 this,
                 poolId,
                 nodeId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 @select,
                 context);
@@ -9090,8 +9090,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to list extensions. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9106,7 +9106,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetNodeExtensionsAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, IEnumerable<string> @select, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetNodeExtensionsAsync(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, IEnumerable<string> @select, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
@@ -9115,8 +9115,8 @@ namespace Azure.Compute.Batch
                 this,
                 poolId,
                 nodeId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 @select,
                 context);
@@ -9125,8 +9125,8 @@ namespace Azure.Compute.Batch
         /// <summary> Lists the Compute Nodes Extensions in the specified Pool. </summary>
         /// <param name="poolId"> The ID of the Pool that contains Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to list extensions. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9140,7 +9140,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchNodeVMExtension> GetNodeExtensions(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchNodeVMExtension> GetNodeExtensions(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
@@ -9149,8 +9149,8 @@ namespace Azure.Compute.Batch
                 this,
                 poolId,
                 nodeId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 @select,
                 cancellationToken.ToRequestContext());
@@ -9159,8 +9159,8 @@ namespace Azure.Compute.Batch
         /// <summary> Lists the Compute Nodes Extensions in the specified Pool. </summary>
         /// <param name="poolId"> The ID of the Pool that contains Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node that you want to list extensions. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9174,7 +9174,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchNodeVMExtension> GetNodeExtensionsAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchNodeVMExtension> GetNodeExtensionsAsync(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, IEnumerable<string> @select = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
@@ -9183,8 +9183,8 @@ namespace Azure.Compute.Batch
                 this,
                 poolId,
                 nodeId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 @select,
                 cancellationToken.ToRequestContext());
@@ -9201,8 +9201,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9218,7 +9218,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response DeleteNodeFile(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, bool? recursive, RequestContext context)
+        public virtual Response DeleteNodeFile(string poolId, string nodeId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, bool? recursive, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteNodeFile");
             scope.Start();
@@ -9228,7 +9228,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-                using HttpMessage message = CreateDeleteNodeFileRequest(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, recursive, context);
+                using HttpMessage message = CreateDeleteNodeFileRequest(poolId, nodeId, filePath, timeout, requestDate, recursive, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -9249,8 +9249,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9266,7 +9266,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> DeleteNodeFileAsync(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, bool? recursive, RequestContext context)
+        public virtual async Task<Response> DeleteNodeFileAsync(string poolId, string nodeId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, bool? recursive, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.DeleteNodeFile");
             scope.Start();
@@ -9276,7 +9276,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-                using HttpMessage message = CreateDeleteNodeFileRequest(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, recursive, context);
+                using HttpMessage message = CreateDeleteNodeFileRequest(poolId, nodeId, filePath, timeout, requestDate, recursive, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -9290,8 +9290,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9306,21 +9306,21 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response DeleteNodeFile(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, bool? recursive = default, CancellationToken cancellationToken = default)
+        public virtual Response DeleteNodeFile(string poolId, string nodeId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, bool? recursive = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-            return DeleteNodeFile(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, recursive, cancellationToken.ToRequestContext());
+            return DeleteNodeFile(poolId, nodeId, filePath, timeout, requestDate, recursive, cancellationToken.ToRequestContext());
         }
 
         /// <summary> Deletes the specified file from the Compute Node. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9335,13 +9335,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response> DeleteNodeFileAsync(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, bool? recursive = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response> DeleteNodeFileAsync(string poolId, string nodeId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, bool? recursive = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-            return await DeleteNodeFileAsync(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, recursive, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await DeleteNodeFileAsync(poolId, nodeId, filePath, timeout, requestDate, recursive, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -9355,8 +9355,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9371,7 +9371,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Response GetNodeFile(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, string ocpRange, RequestContext context)
+        public virtual Response GetNodeFile(string poolId, string nodeId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, string ocpRange, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetNodeFile");
             scope.Start();
@@ -9390,7 +9390,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-                using HttpMessage message = CreateGetNodeFileRequest(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, requestConditions, ocpRange, context);
+                using HttpMessage message = CreateGetNodeFileRequest(poolId, nodeId, filePath, timeout, requestDate, requestConditions, ocpRange, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -9411,8 +9411,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9427,7 +9427,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual async Task<Response> GetNodeFileAsync(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, string ocpRange, RequestContext context)
+        public virtual async Task<Response> GetNodeFileAsync(string poolId, string nodeId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, string ocpRange, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetNodeFile");
             scope.Start();
@@ -9446,7 +9446,7 @@ namespace Azure.Compute.Batch
                 Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
                 Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-                using HttpMessage message = CreateGetNodeFileRequest(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, requestConditions, ocpRange, context);
+                using HttpMessage message = CreateGetNodeFileRequest(poolId, nodeId, filePath, timeout, requestDate, requestConditions, ocpRange, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -9460,8 +9460,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9475,13 +9475,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Response<BinaryData> GetNodeFile(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, string ocpRange = default, CancellationToken cancellationToken = default)
+        public virtual Response<BinaryData> GetNodeFile(string poolId, string nodeId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, string ocpRange = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-            Response result = GetNodeFile(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, requestConditions, ocpRange, cancellationToken.ToRequestContext());
+            Response result = GetNodeFile(poolId, nodeId, filePath, timeout, requestDate, requestConditions, ocpRange, cancellationToken.ToRequestContext());
             return Response.FromValue(result.Content, result);
         }
 
@@ -9489,8 +9489,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9504,13 +9504,13 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/>, <paramref name="nodeId"/> or <paramref name="filePath"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual async Task<Response<BinaryData>> GetNodeFileAsync(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, string ocpRange = default, CancellationToken cancellationToken = default)
+        public virtual async Task<Response<BinaryData>> GetNodeFileAsync(string poolId, string nodeId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, string ocpRange = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
             Argument.AssertNotNullOrEmpty(filePath, nameof(filePath));
 
-            Response result = await GetNodeFileAsync(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, requestConditions, ocpRange, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            Response result = await GetNodeFileAsync(poolId, nodeId, filePath, timeout, requestDate, requestConditions, ocpRange, cancellationToken.ToRequestContext()).ConfigureAwait(false);
             return Response.FromValue(result.Content, result);
         }
 
@@ -9525,8 +9525,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9535,7 +9535,7 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual Response GetNodeFilePropertiesInternal(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        internal virtual Response GetNodeFilePropertiesInternal(string poolId, string nodeId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetNodeFilePropertiesInternal");
             scope.Start();
@@ -9550,7 +9550,7 @@ namespace Azure.Compute.Batch
                     throw new ArgumentException("Service does not support the If-None-Match header for this operation.");
                 }
 
-                using HttpMessage message = CreateGetNodeFilePropertiesInternalRequest(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateGetNodeFilePropertiesInternalRequest(poolId, nodeId, filePath, timeout, requestDate, requestConditions, context);
                 return Pipeline.ProcessMessage(message, context);
             }
             catch (Exception e)
@@ -9571,8 +9571,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9581,7 +9581,7 @@ namespace Azure.Compute.Batch
         /// <param name="context"> The request options, which can override default behaviors of the client pipeline on a per-call basis. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        internal virtual async Task<Response> GetNodeFilePropertiesInternalAsync(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, RequestConditions requestConditions, RequestContext context)
+        internal virtual async Task<Response> GetNodeFilePropertiesInternalAsync(string poolId, string nodeId, string filePath, TimeSpan? timeout, DateTimeOffset? requestDate, RequestConditions requestConditions, RequestContext context)
         {
             using DiagnosticScope scope = ClientDiagnostics.CreateScope("BatchClient.GetNodeFilePropertiesInternal");
             scope.Start();
@@ -9596,7 +9596,7 @@ namespace Azure.Compute.Batch
                     throw new ArgumentException("Service does not support the If-None-Match header for this operation.");
                 }
 
-                using HttpMessage message = CreateGetNodeFilePropertiesInternalRequest(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, requestConditions, context);
+                using HttpMessage message = CreateGetNodeFilePropertiesInternalRequest(poolId, nodeId, filePath, timeout, requestDate, requestConditions, context);
                 return await Pipeline.ProcessMessageAsync(message, context).ConfigureAwait(false);
             }
             catch (Exception e)
@@ -9610,8 +9610,8 @@ namespace Azure.Compute.Batch
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9619,17 +9619,17 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual Response GetNodeFilePropertiesInternal(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual Response GetNodeFilePropertiesInternal(string poolId, string nodeId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return GetNodeFilePropertiesInternal(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext());
+            return GetNodeFilePropertiesInternal(poolId, nodeId, filePath, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext());
         }
 
         /// <summary> Gets the properties of the specified Compute Node file. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node. </param>
         /// <param name="filePath"> The path to the file or directory. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9637,9 +9637,9 @@ namespace Azure.Compute.Batch
         /// <param name="requestConditions"> The content to send as the request conditions of the request. </param>
         /// <param name="cancellationToken"> The cancellation token that can be used to cancel the operation. </param>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        internal virtual async Task<Response> GetNodeFilePropertiesInternalAsync(string poolId, string nodeId, string filePath, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
+        internal virtual async Task<Response> GetNodeFilePropertiesInternalAsync(string poolId, string nodeId, string filePath, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, RequestConditions requestConditions = default, CancellationToken cancellationToken = default)
         {
-            return await GetNodeFilePropertiesInternalAsync(poolId, nodeId, filePath, timeOutInSeconds, ocpDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
+            return await GetNodeFilePropertiesInternalAsync(poolId, nodeId, filePath, timeout, requestDate, requestConditions, cancellationToken.ToRequestContext()).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -9652,8 +9652,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node whose files you want to list. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9672,7 +9672,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual Pageable<BinaryData> GetNodeFiles(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, bool? recursive, RequestContext context)
+        public virtual Pageable<BinaryData> GetNodeFiles(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, bool? recursive, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
@@ -9681,8 +9681,8 @@ namespace Azure.Compute.Batch
                 this,
                 poolId,
                 nodeId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 recursive,
@@ -9699,8 +9699,8 @@ namespace Azure.Compute.Batch
         /// </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node whose files you want to list. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9719,7 +9719,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
         /// <returns> The response returned from the service. </returns>
-        public virtual AsyncPageable<BinaryData> GetNodeFilesAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds, DateTimeOffset? ocpDate, int? maxresults, string filter, bool? recursive, RequestContext context)
+        public virtual AsyncPageable<BinaryData> GetNodeFilesAsync(string poolId, string nodeId, TimeSpan? timeout, DateTimeOffset? requestDate, int? maxresults, string filter, bool? recursive, RequestContext context)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
@@ -9728,8 +9728,8 @@ namespace Azure.Compute.Batch
                 this,
                 poolId,
                 nodeId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 recursive,
@@ -9739,8 +9739,8 @@ namespace Azure.Compute.Batch
         /// <summary> Lists all of the files in Task directories on the specified Compute Node. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node whose files you want to list. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9758,7 +9758,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual Pageable<BatchNodeFile> GetNodeFiles(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, bool? recursive = default, CancellationToken cancellationToken = default)
+        public virtual Pageable<BatchNodeFile> GetNodeFiles(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, bool? recursive = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
@@ -9767,8 +9767,8 @@ namespace Azure.Compute.Batch
                 this,
                 poolId,
                 nodeId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 recursive,
@@ -9778,8 +9778,8 @@ namespace Azure.Compute.Batch
         /// <summary> Lists all of the files in Task directories on the specified Compute Node. </summary>
         /// <param name="poolId"> The ID of the Pool that contains the Compute Node. </param>
         /// <param name="nodeId"> The ID of the Compute Node whose files you want to list. </param>
-        /// <param name="timeOutInSeconds"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
-        /// <param name="ocpDate">
+        /// <param name="timeout"> The maximum time that the server can spend processing the request, in seconds. The default is 30 seconds. If the value is larger than 30, the default will be used instead.". </param>
+        /// <param name="requestDate">
         /// The time the request was issued. Client libraries typically set this to the
         /// current system clock time; set it explicitly if you are calling the REST API
         /// directly.
@@ -9797,7 +9797,7 @@ namespace Azure.Compute.Batch
         /// <exception cref="ArgumentNullException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="poolId"/> or <paramref name="nodeId"/> is an empty string, and was expected to be non-empty. </exception>
         /// <exception cref="RequestFailedException"> Service returned a non-success status code. </exception>
-        public virtual AsyncPageable<BatchNodeFile> GetNodeFilesAsync(string poolId, string nodeId, TimeSpan? timeOutInSeconds = default, DateTimeOffset? ocpDate = default, int? maxresults = default, string filter = default, bool? recursive = default, CancellationToken cancellationToken = default)
+        public virtual AsyncPageable<BatchNodeFile> GetNodeFilesAsync(string poolId, string nodeId, TimeSpan? timeout = default, DateTimeOffset? requestDate = default, int? maxresults = default, string filter = default, bool? recursive = default, CancellationToken cancellationToken = default)
         {
             Argument.AssertNotNullOrEmpty(poolId, nameof(poolId));
             Argument.AssertNotNullOrEmpty(nodeId, nameof(nodeId));
@@ -9806,8 +9806,8 @@ namespace Azure.Compute.Batch
                 this,
                 poolId,
                 nodeId,
-                timeOutInSeconds,
-                ocpDate,
+                timeout,
+                requestDate,
                 maxresults,
                 filter,
                 recursive,
